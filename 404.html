@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Page introuvable — SPORTLIVE" />
+  <title>404 — Page introuvable | SPORTLIVE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2322c55e;stop-opacity:1'/><stop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text x='50' y='68' text-anchor='middle' fill='white' font-family='Arial Black' font-size='52' font-weight='900'>SL</text><circle cx='50' cy='32' r='8' fill='white' opacity='0.9'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #080c08;
+      --bg-card: #1a221a;
+      --bg-glass: rgba(20, 26, 20, 0.88);
+      --green-400: #4ade80;
+      --green-500: #22c55e;
+      --green-subtle: rgba(34, 197, 94, 0.07);
+      --green-border: rgba(34, 197, 94, 0.18);
+      --text-primary: #edf5ed;
+      --text-secondary: #9aa89a;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --gradient-brand: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+    }
+
+    [data-theme="light"] {
+      --bg-deep: #f0f4f0;
+      --bg-card: #ffffff;
+      --bg-glass: rgba(255, 255, 255, 0.9);
+      --text-primary: #1a1f1a;
+      --text-secondary: #4a504a;
+      --border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bg-texture {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.018;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(34,197,94,0.5) 0px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(74,222,128,0.4) 0px, transparent 1px);
+      background-size: 80px 80px, 100px 100px;
+    }
+
+    .error-container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 500px;
+    }
+
+    .error-code {
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .error-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .error-message {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--gradient-brand);
+      color: #fff;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green-500);
+      background: var(--green-subtle);
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-texture"></div>
+
+  <main class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-icon">🔍</div>
+    <h1 class="error-title">Page introuvable</h1>
+    <p class="error-message">
+      Cette page n'existe pas ou a été déplacée.<br />
+      Pas d'inquiétude, le match continue ailleurs !
+    </p>
+    <div class="error-actions">
+      <a href="index.html" class="btn-primary">
+        <span>🏠</span> Retour à l'accueil
+      </a>
+      <a href="programme.html" class="btn-secondary">
+        <span>📅</span> Voir le programme
+      </a>
+    </div>
+    <p class="footer-note">SPORTLIVE — Le direct sportif</p>
+  </main>
+</body>
+</html>
