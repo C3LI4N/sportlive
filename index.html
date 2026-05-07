@@ -3,131 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="SPORTLIVE — Streaming sportif gratuit" />
+  <meta name="description" content="STREEMIO — Votre plateforme de streaming sportif. Regardez toutes vos chaînes en direct, gratuitement." />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta http-equiv="Cache-Control" content="max-age=1800, must-revalidate" />
-  <title>SPORTLIVE — Streaming Sportif</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2322c55e;stop-opacity:1'/><stop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='66' text-anchor='middle' fill='white' font-family='Arial Black' font-size='46' font-weight='900' letter-spacing='-2'>SL</text></svg>" />
+  <title>STREEMIO — Streaming Sportif</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='white' font-family='Arial Black' font-size='40' font-weight='900'%3ESM%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-deep: #080c08;
-      --bg-primary: #0e130e;
-      --bg-secondary: #141a14;
-      --bg-card: #1a221a;
-      --bg-card-hover: #1f281f;
-      --bg-glass: rgba(16, 22, 16, 0.9);
+      --ink: #080808;
+      --paper: #0f0f0f;
+      --stone: #181818;
+      --stone-hover: #1f1f1f;
+      --glass: rgba(15, 15, 15, 0.82);
       
-      --green-400: #4ade80;
-      --green-500: #22c55e;
-      --green-600: #16a34a;
-      --green-subtle: rgba(34, 197, 94, 0.06);
-      --green-border: rgba(34, 197, 94, 0.16);
+      --emerald-400: #34d399;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+      --emerald-mist: rgba(16, 185, 129, 0.06);
+      --emerald-border: rgba(16, 185, 129, 0.12);
+      --emerald-glow: 0 0 20px rgba(16, 185, 129, 0.15);
       
-      --text-primary: #edf5ed;
-      --text-secondary: #9aa89a;
-      --text-muted: #6a756a;
+      --text-primary: #f0f0f0;
+      --text-secondary: #909090;
+      --text-tertiary: #606060;
       
-      --border-color: rgba(255, 255, 255, 0.05);
-      --border-strong: rgba(255, 255, 255, 0.1);
+      --hairline: rgba(255, 255, 255, 0.04);
+      --hairline-strong: rgba(255, 255, 255, 0.08);
       
-      --gradient-brand: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
-      --gradient-header: linear-gradient(180deg, rgba(16,22,16,0.98) 0%, rgba(16,22,16,0.92) 100%);
+      --gradient-brand: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      --gradient-hero: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%);
       
-      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.5);
-      --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.6);
-      --shadow-brand: 0 4px 20px rgba(34, 197, 94, 0.15);
+      --shadow-elevated: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-floating: 0 8px 40px rgba(0, 0, 0, 0.5);
       
-      --radius-xs: 6px;
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 100px;
     }
 
     [data-theme="light"] {
-      --bg-deep: #f0f4f0;
-      --bg-primary: #f7faf7;
-      --bg-secondary: #edf1ed;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f5f8f5;
-      --bg-glass: rgba(255, 255, 255, 0.92);
+      --ink: #ebedeb;
+      --paper: #f2f4f2;
+      --stone: #e0e2e0;
+      --stone-hover: #d8dad8;
+      --glass: rgba(242, 244, 242, 0.88);
       
-      --text-primary: #1a1f1a;
-      --text-secondary: #4a504a;
-      --text-muted: #7a807a;
+      --text-primary: #1a1a1a;
+      --text-secondary: #606060;
+      --text-tertiary: #888;
       
-      --border-color: rgba(0, 0, 0, 0.06);
-      --border-strong: rgba(0, 0, 0, 0.1);
+      --hairline: rgba(0, 0, 0, 0.05);
+      --hairline-strong: rgba(0, 0, 0, 0.08);
       
-      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.08);
-      --shadow-brand: 0 4px 20px rgba(34, 197, 94, 0.1);
-      --gradient-header: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.94) 100%);
+      --shadow-elevated: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.08);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg-deep);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--ink);
       color: var(--text-primary);
-      line-height: 1.6;
+      line-height: 1.55;
       min-height: 100vh;
-      overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.4s ease, color 0.4s ease;
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--green-600); border-radius: 10px; }
-
-    .bg-texture {
+    ::-webkit-scrollbar { width: 0; }
+    
+    .bg-ambient {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.015;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(34,197,94,0.5) 0px, transparent 1px),
-        radial-gradient(circle at 70% 60%, rgba(74,222,128,0.4) 0px, transparent 1px);
-      background-size: 80px 80px, 100px 100px;
+      background: 
+        radial-gradient(ellipse at 25% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(52, 211, 153, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at 45% 80%, rgba(5, 150, 105, 0.03) 0%, transparent 55%);
     }
 
-    .container {
+    .wrapper {
       position: relative;
       z-index: 1;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.25rem;
     }
 
-    /* ═══════════ HEADER ═══════════ */
-    .header {
+    /* ═══════════════ NAVBAR ═══════════════ */
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--gradient-header);
+      background: var(--glass);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--hairline);
       transition: box-shadow 0.3s ease;
     }
 
-    .header.compact { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .navbar.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.25); }
 
-    .header-inner {
-      max-width: 1400px;
+    .navbar-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.6rem 2rem;
+      padding: 0.55rem 1.25rem;
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
-    .logo-link {
+    .brand {
       display: flex;
       align-items: center;
       gap: 0.55rem;
@@ -136,399 +130,415 @@
       flex-shrink: 0;
     }
 
-    .logo-svg { width: 36px; height: 36px; flex-shrink: 0; }
-
-    .logo-text {
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .logo-text .accent { color: var(--green-500); }
-
-    .nav-pills {
-      display: flex;
-      gap: 0.15rem;
-      background: var(--bg-secondary);
-      padding: 0.2rem;
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--gradient-brand);
       border-radius: var(--radius-sm);
-      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+      box-shadow: var(--emerald-glow);
     }
 
-    .nav-pill {
-      padding: 0.5rem 1.1rem;
-      border-radius: var(--radius-xs);
+    .brand-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-text .accent { color: var(--emerald-500); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.2rem;
+      background: var(--stone);
+      padding: 0.2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--hairline);
+    }
+
+    .nav-link {
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-sm);
       color: var(--text-secondary);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.83rem;
+      font-size: 0.8rem;
       transition: all 0.2s ease;
     }
 
-    .nav-pill:hover { color: var(--text-primary); background: var(--bg-card-hover); }
-    .nav-pill.active { background: var(--green-subtle); color: var(--green-400); font-weight: 600; }
+    .nav-link:hover { color: var(--text-primary); }
+    .nav-link.active {
+      background: var(--emerald-mist);
+      color: var(--emerald-400);
+      font-weight: 600;
+      box-shadow: 0 0 0 1px var(--emerald-border);
+    }
 
-    .header-spacer { flex: 1; }
-
-    .header-clock {
+    .navbar-right {
+      margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 0.9rem;
-      font-variant-numeric: tabular-nums;
-      letter-spacing: -0.02em;
-      background: var(--bg-secondary);
-      padding: 0.4rem 0.9rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-color);
-      white-space: nowrap;
+      gap: 0.75rem;
     }
 
-    .header-clock svg { width: 15px; height: 15px; color: var(--green-400); flex-shrink: 0; }
-    .header-clock .time { color: var(--green-400); font-weight: 700; }
-
-    .header-actions { display: flex; align-items: center; gap: 0.5rem; }
-
-    .theme-btn {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      padding: 0.45rem 0.6rem;
-      cursor: pointer;
-      font-size: 1rem;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-    }
-
-    .theme-btn:hover { border-color: var(--green-500); background: var(--bg-card-hover); }
-
-    /* ═══════════ HERO ═══════════ */
-    .hero {
-      text-align: center;
-      padding: 2.5rem 0 0.75rem;
-    }
-
-    .hero-badge {
+    .live-indicator {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--green-subtle);
-      border: 1px solid var(--green-border);
-      padding: 0.35rem 1rem;
-      border-radius: 100px;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      background: var(--emerald-mist);
+      border: 1px solid var(--emerald-border);
+      border-radius: var(--radius-pill);
       font-weight: 600;
-      font-size: 0.78rem;
-      color: var(--green-400);
+      font-size: 0.7rem;
+      color: var(--emerald-400);
+    }
+
+    .live-pulse {
+      width: 6px; height: 6px;
+      background: var(--emerald-500);
+      border-radius: 50%;
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(16,185,129,0.6); }
+      50% { opacity:0.3; box-shadow:0 0 0 8px rgba(16,185,129,0); }
+    }
+
+    .theme-btn {
+      background: var(--stone);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .theme-btn:hover { border-color: var(--emerald-500); background: var(--stone-hover); }
+
+    /* ═══════════════ HERO ═══════════════ */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 1rem;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.85rem;
+      background: var(--emerald-mist);
+      border: 1px solid var(--emerald-border);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: var(--emerald-400);
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .live-dot {
-      width: 7px; height: 7px;
-      background: var(--green-500);
-      border-radius: 50%;
-      animation: livePulse 2s infinite;
-    }
-
-    @keyframes livePulse {
-      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(34,197,94,0.7); }
-      50% { opacity:0.5; box-shadow:0 0 0 8px rgba(34,197,94,0); }
+      letter-spacing: 0.06em;
     }
 
     .hero-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
       margin-bottom: 0.5rem;
     }
 
-    .hero-title .brand-gradient {
-      background: var(--gradient-brand);
+    .hero-title .gradient-text {
+      background: var(--gradient-hero);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero-desc {
-      font-size: 0.95rem;
+    .hero-subtitle {
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      max-width: 440px;
+      max-width: 400px;
       margin: 0 auto;
+      font-weight: 400;
     }
 
-    /* ═══════════ QUICK NAV ═══════════ */
-    .quick-nav {
+    /* ═══════════════ QUICK ACCESS ═══════════════ */
+    .quick-access {
       display: flex;
       justify-content: center;
-      gap: 0.4rem;
-      padding: 1rem 0 1.25rem;
+      gap: 0.35rem;
+      padding: 0.75rem 0 1rem;
       flex-wrap: wrap;
     }
 
-    .quick-nav-btn {
-      padding: 0.45rem 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
+    .quick-btn {
+      padding: 0.4rem 0.9rem;
+      background: var(--stone);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
       color: var(--text-secondary);
-      font-size: 0.8rem;
+      font-size: 0.73rem;
       font-weight: 500;
+      font-family: inherit;
       cursor: pointer;
       transition: all 0.2s ease;
-      font-family: inherit;
       white-space: nowrap;
     }
 
-    .quick-nav-btn:hover { border-color: var(--green-500); color: var(--green-400); background: var(--green-subtle); }
-
-    /* ═══════════ CATEGORIES ═══════════ */
-    .category-section { margin-bottom: 2.5rem; }
-
-    .category-head {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 1px solid var(--border-color);
+    .quick-btn:hover {
+      border-color: var(--emerald-500);
+      color: var(--emerald-400);
+      background: var(--emerald-mist);
     }
 
-    .category-icon-block {
-      width: 34px; height: 34px;
-      border-radius: var(--radius-sm);
+    /* ═══════════════ SECTIONS ═══════════════ */
+    .section {
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-accent {
+      width: 4px;
+      height: 20px;
       background: var(--gradient-brand);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
+      border-radius: 2px;
       flex-shrink: 0;
-      box-shadow: var(--shadow-brand);
     }
 
-    .category-title {
-      font-size: 1.1rem;
+    .section-label {
+      font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
-    .category-subtitle {
+    .section-count {
       margin-left: auto;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 500;
+      color: var(--text-tertiary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
-    .channel-grid {
+    /* ═══════════════ GRID ═══════════════ */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.7rem;
     }
 
-    .channel-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
+    .card {
+      background: var(--stone);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      cursor: pointer;
       text-decoration: none;
       color: inherit;
-      display: block;
-      transition: all 0.28s ease;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
 
-    .channel-card:hover {
+    .card:hover {
       transform: translateY(-3px);
-      border-color: var(--border-strong);
-      box-shadow: var(--shadow-md);
+      border-color: var(--hairline-strong);
+      box-shadow: var(--shadow-floating);
     }
 
-    .card-top {
-      padding: 0.7rem 1rem;
+    .card-stripe {
+      padding: 0.5rem 0.8rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .card-status {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
-      color: var(--green-400);
+      gap: 0.3rem;
+      color: var(--emerald-400);
     }
 
-    .card-status.off { color: var(--text-muted); }
+    .card-status.off { color: var(--text-tertiary); }
 
-    .status-dot {
-      width: 6px; height: 6px;
+    .card-dot {
+      width: 5px; height: 5px;
       border-radius: 50%;
-      background: var(--green-500);
+      background: var(--emerald-500);
     }
 
-    .status-dot.off { background: var(--text-muted); }
+    .card-dot.off { background: var(--text-tertiary); }
 
-    .quality-tag {
-      padding: 0.12rem 0.45rem;
-      background: var(--bg-secondary);
+    .card-badge {
+      padding: 0.1rem 0.4rem;
+      background: var(--paper);
       border-radius: 4px;
-      color: var(--text-muted);
-      font-size: 0.62rem;
+      color: var(--text-tertiary);
+      font-size: 0.54rem;
       font-weight: 700;
     }
 
-    .card-visual {
-      padding: 1.2rem;
+    .card-media {
+      padding: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
-      background: var(--bg-secondary);
+      min-height: 100px;
+      background: var(--paper);
+      flex: 1;
     }
 
-    .card-logo {
-      max-width: 68%;
-      max-height: 70px;
+    .card-img {
+      max-width: 58%;
+      max-height: 50px;
       object-fit: contain;
       transition: transform 0.3s ease;
     }
 
-    .channel-card:hover .card-logo { transform: scale(1.05); }
+    .card:hover .card-img { transform: scale(1.05); }
 
-    .card-bottom { padding: 0.9rem 1rem; }
-
-    .card-channel-name {
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: -0.01em;
+    .card-body {
+      padding: 0.7rem 0.8rem;
     }
 
-    .card-country {
-      color: var(--text-muted);
-      font-size: 0.7rem;
+    .card-title {
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .card-sub {
+      color: var(--text-tertiary);
+      font-size: 0.6rem;
       margin-top: 0.15rem;
       text-transform: uppercase;
     }
 
-    .offline-card { opacity: 0.65; }
-    .offline-card:hover { opacity: 0.85; }
-
-    .empty-category {
-      padding: 2.5rem;
+    /* Empty */
+    .empty {
+      padding: 2rem;
       text-align: center;
-      background: var(--bg-card);
-      border: 1px dashed var(--border-color);
-      border-radius: var(--radius-md);
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+      background: var(--stone);
+      border: 1px dashed var(--hairline);
+      border-radius: var(--radius-lg);
+      color: var(--text-tertiary);
     }
 
-    .empty-category .icon { font-size: 2.8rem; opacity: 0.3; margin-bottom: 0.6rem; }
-    .empty-category .title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .empty-category .desc { font-size: 0.78rem; }
+    .empty-icon { font-size: 2.5rem; opacity: 0.3; margin-bottom: 0.4rem; }
+    .empty-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.1rem; color: var(--text-secondary); }
+    .empty-text { font-size: 0.7rem; }
 
-    /* ═══════════ FOOTER ═══════════ */
+    /* ═══════════════ FOOTER ═══════════════ */
     .footer {
       text-align: center;
-      padding: 2.5rem 0;
+      padding: 2rem 0;
       margin-top: 3rem;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid var(--hairline);
     }
 
-    .footer-brand { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
-    .footer-brand .accent { color: var(--green-500); }
-    .footer-copy { color: var(--text-muted); font-size: 0.75rem; }
+    .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.15rem; }
+    .footer-brand .accent { color: var(--emerald-500); }
+    .footer-note { color: var(--text-tertiary); font-size: 0.6rem; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .anim-in { animation: fadeUp 0.4s ease forwards; opacity: 0; }
+    .slide-up { animation: slideUp 0.4s ease forwards; opacity: 0; }
+    .slide-up:nth-child(1) { animation-delay: 0s; }
+    .slide-up:nth-child(2) { animation-delay: 0.05s; }
+    .slide-up:nth-child(3) { animation-delay: 0.1s; }
+    .slide-up:nth-child(4) { animation-delay: 0.15s; }
+    .slide-up:nth-child(5) { animation-delay: 0.2s; }
+    .slide-up:nth-child(6) { animation-delay: 0.25s; }
 
     @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-      .header-inner {
-        padding: 0.5rem 1rem;
-        gap: 0.75rem;
+      .wrapper { padding: 0 0.75rem; }
+      .navbar-inner {
+        padding: 0.4rem 0.6rem;
+        gap: 0.5rem;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
       }
-      .header-spacer { display: none; }
-      .header-clock { order: 3; width: 100%; justify-content: center; font-size: 0.8rem; }
-      .nav-pills { width: 100%; justify-content: center; }
-      .channel-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
-      .hero-title { font-size: 1.7rem; }
-      .quick-nav { gap: 0.3rem; }
-      .quick-nav-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
+      .navbar-right { order: 3; width: 100%; justify-content: center; padding-top: 0.15rem; }
+      .nav-links { order: 2; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
+      .hero-title { font-size: 1.6rem; }
+      .card-media { min-height: 80px; padding: 0.8rem; }
+      .card-body { padding: 0.5rem 0.6rem; }
+      .card-title { font-size: 0.7rem; }
+    }
+
+    @media (max-width: 400px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-  <div class="bg-texture"></div>
+  <div class="bg-ambient"></div>
 
-  <header class="header" id="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo-link">
-        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <rect width="100" height="100" rx="20" fill="url(#logoGrad)"/>
-          <text x="50" y="66" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="46" font-weight="900" letter-spacing="-2">SL</text>
-        </svg>
-        <span class="logo-text">SPORT<span class="accent">LIVE</span></span>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">SM</div>
+        <span class="brand-text">STREEM<span class="accent">IO</span></span>
       </a>
-      <nav class="nav-pills">
-        <a href="index.html" class="nav-pill active">Chaînes</a>
-        <a href="programme.html" class="nav-pill">Programme</a>
-      </nav>
-      <div class="header-spacer"></div>
-      <div class="header-clock">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12,6 12,12 16,14"/>
-        </svg>
-        <span class="time" id="headerClock">00:00</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Chaînes</a>
+        <a href="programme.html" class="nav-link">Programme</a>
       </div>
-      <div class="header-actions">
-        <button class="theme-btn" id="themeToggle" title="Changer le thème" aria-label="Changer le thème">🌙</button>
+      <div class="navbar-right">
+        <span class="live-indicator">
+          <span class="live-pulse"></span>
+          <span id="liveGlobal">15 directs</span>
+        </span>
+        <button class="theme-btn" id="themeToggle" aria-label="Thème">🌙</button>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main class="container">
-    <section class="hero anim-in">
-      <div class="hero-badge">
-        <span class="live-dot"></span>
-        <span id="liveGlobalCount">44 chaînes en direct</span>
-      </div>
-      <h1 class="hero-title">Le direct <span class="brand-gradient">sportif</span></h1>
-      <p class="hero-desc">Streaming gratuit et fluide. Retrouvez tous vos sports préférés au même endroit.</p>
-    </section>
+  <main class="wrapper">
+    <header class="hero slide-up">
+      <div class="hero-chip">⚡ Streaming gratuit</div>
+      <h1 class="hero-title">Le sport <span class="gradient-text">en direct</span></h1>
+      <p class="hero-subtitle">Toutes vos chaînes sportives réunies. Simple, rapide, gratuit.</p>
+    </header>
 
-    <div class="quick-nav anim-in" id="quickNav"></div>
-    <div id="categoriesContainer"></div>
+    <div class="quick-access slide-up" id="quickAccess"></div>
+    <div id="mainContent"></div>
   </main>
 
   <footer class="footer">
-    <p class="footer-brand">SPORT<span class="accent">LIVE</span></p>
-    <p class="footer-copy">© 2026 — Streaming sportif gratuit</p>
+    <p class="footer-brand">STREEM<span class="accent">IO</span></p>
+    <p class="footer-note">© 2026 — Streaming sportif gratuit</p>
   </footer>
 
   <script defer>
-    // ═══════════ DONNÉES CHAÎNES (NE PAS MODIFIER) ═══════════
+    // ═══════════ CHAÎNES ACTIVES (MAJ 07/05/2026) ═══════════
     const CHANNELS = [
+      // beIN SPORTS
       { name: "beIN SPORTS 1", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png", status: "online", quality: "FHD" },
       { name: "beIN SPORTS 2", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png", status: "online", quality: "FHD" },
       { name: "beIN SPORTS 3", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_3_7e4adcefc6.png", status: "online", quality: "FHD" },
@@ -539,140 +549,91 @@
       { name: "beIN SPORTS MAX 8", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_8_f699d80fa1.png", status: "online", quality: "HD" },
       { name: "beIN SPORTS MAX 9", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_9_17ef74743f.png", status: "online", quality: "HD" },
       { name: "beIN SPORTS MAX 10", image: "https://freebox.cdn.scw.iliad.fr/large_be_INSPORTSMAX_10_1ddd01afda.png", status: "online", quality: "HD" },
+      // Canal
       { name: "Canal", image: "https://freebox.cdn.scw.iliad.fr/4_5086f4334d.png", status: "online", quality: "FHD" },
       { name: "Canal Sport", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_9bd2c51b31.png", status: "online", quality: "FHD" },
       { name: "Canal Sport360", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_360_7772de4eea.png", status: "online", quality: "FHD" },
       { name: "Canal Foot", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png", status: "online", quality: "FHD" },
+      // Ligue 1
       { name: "Ligue 1+", image: "https://freebox.cdn.scw.iliad.fr/large_LFP_LOGOTYPE_L1_MASTER_ELECTRIC_BLUE_RVB_2_5e790f2852.png", status: "online", quality: "HD" },
-      { name: "Ligue 1+ 4", image: "https://www.monpetitforfait.com/comparateur-box-internet/wp-content/uploads/2025/07/ligue-1plus-4-box-internet.png", status: "online", quality: "HD" },
-      { name: "Ligue 1+ 5", image: "https://www.monpetitforfait.com/comparateur-box-internet/wp-content/uploads/2025/07/ligue-1-plus-5.png", status: "online", quality: "HD" },
-      { name: "Ligue 1+ 6", image: "https://www.monpetitforfait.com/comparateur-box-internet/wp-content/uploads/2025/07/ligue-1plus-6-box-internet.png", status: "online", quality: "HD" },
-      { name: "Canal Live 1", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1135/canal-ouah/CHN43FN/CHN43FN_1135_10092024-cEcG", status: "online", quality: "HD" },
-      { name: "Canal Live 2", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1136/canal-ouah/CHN43FN/CHN43FN_1136_20240910-MzpB", status: "online", quality: "HD" },
-      { name: "Canal Live 3", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1137/canal-ouah/CHN43FN/CHN43FN_1137_20240910-d8dJ", status: "online", quality: "HD" },
-      { name: "Canal Live 4", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1138/canal-ouah/CHN43FN/CHN43FN_1138_20240910-bEql", status: "online", quality: "HD" },
-      { name: "Canal Live 5", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1139/canal-ouah/CHN43FN/CHN43FN_1139_20240910-YQYG", status: "online", quality: "HD" },
-      { name: "Canal Live 6", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1140/canal-ouah/CHN43FN/CHN43FN_1140_20240910-MO4V", status: "online", quality: "HD" },
-      { name: "Canal Live 7", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1141/canal-ouah/CHN43FN/CHN43FN_1141_20240910-deiH", status: "online", quality: "HD" },
-      { name: "Canal Live 8", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1142/canal-ouah/CHN43FN/CHN43FN_1142_20240910-m1CN", status: "online", quality: "HD" },
-      { name: "Canal Live 9", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1143/canal-ouah/CHN43FN/CHN43FN_1143_20240910-NMYX", status: "online", quality: "HD" },
-      { name: "Canal Live 10", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1144/canal-ouah/CHN43FN/CHN43FN_1144_20240910-AAy9", status: "online", quality: "HD" },
-      { name: "Canal Live 11", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1145/canal-ouah/CHN43FN/CHN43FN_1145_20240910-RDj_", status: "online", quality: "HD" },
-      { name: "Canal Live 12", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1146/canal-ouah/CHN43FN/CHN43FN_1146_20240910-DOOZ", status: "online", quality: "HD" },
-      { name: "Canal Live 13", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1147/canal-ouah/CHN43FN/CHN43FN_1147_20240910-qJgY", status: "online", quality: "HD" },
-      { name: "Canal Live 14", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1148/canal-ouah/CHN43FN/CHN43FN_1148_20240910-x8vz", status: "online", quality: "HD" },
-      { name: "Canal Live 15", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1149/canal-ouah/CHN43FN/CHN43FN_1149_20240910-TyQ0", status: "online", quality: "HD" },
-      { name: "Canal Live 16", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1150/canal-ouah/CHN43FN/CHN43FN_1150_20240910-TtsK", status: "online", quality: "HD" },
-      { name: "Canal Live 17", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1151/canal-ouah/CHN43FN/CHN43FN_1151_20240910-qxMQ", status: "online", quality: "HD" },
-      { name: "Canal Live 18", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1152/canal-ouah/CHN43FN/CHN43FN_1152_20240910-yyCF", status: "online", quality: "HD" },
-      { name: "Canal Live 19", image: "https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1153/canal-ouah/CHN43FN/CHN43FN_1153_20240910-GuM-", status: "online", quality: "HD" },
+      // Eurosport
       { name: "Eurosport 1", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Eurosport_HD_since_2015.svg/120px-Eurosport_HD_since_2015.svg.png", status: "online", quality: "HD" },
       { name: "Eurosport 2", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Eurosport_2_HD_Logo_2015.svg/1920px-Eurosport_2_HD_Logo_2015.svg.png", status: "online", quality: "HD" },
-      { name: "L Equipe", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/La_cha%C3%AEne_l%27Equipe_-_logo_2016.png", status: "offline", quality: "SD" },
-      { name: "RMC Sport 1", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Logo_RMC_Sport_2018.svg", status: "online", quality: "HD" },
-      { name: "RMC Sport 2", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_RMC_Sport_2_2018.svg/3840px-Logo_RMC_Sport_2_2018.svg.png", status: "online", quality: "HD" },
-      { name: "France 24", image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png", status: "online", quality: "SD" },
-      { name: "France 2", image: "https://freebox.cdn.scw.iliad.fr/2_b10cac1cb4.png", status: "online", quality: "HD" },
-      { name: "France 3", image: "https://freebox.cdn.scw.iliad.fr/3_0318162f2b.png", status: "online", quality: "HD" },
-      { name: "TF1", image: "https://freebox.cdn.scw.iliad.fr/1_13c8b55898.png", status: "online", quality: "HD" }
+      // RMC
+      { name: "RMC Sport 1", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Logo_RMC_Sport_2018.svg", status: "online", quality: "HD" }
     ];
 
-    const PLACEHOLDER_SVG = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48"><rect fill="#1a221a" width="120" height="48" rx="8"/><text x="60" y="30" text-anchor="middle" fill="#6a756a" font-family="sans-serif" font-size="10" font-weight="700">SPORTLIVE</text></svg>');
-
-    function logo(ch) { return ch.image || PLACEHOLDER_SVG; }
+    const PLACEHOLDER = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48"><rect fill="#181818" width="120" height="48" rx="8"/><text x="60" y="30" text-anchor="middle" fill="#606060" font-family="sans-serif" font-size="10" font-weight="700">STREEMIO</text></svg>');
+    const logo = (ch) => ch.image || PLACEHOLDER;
 
     const CATEGORIES = [
-      { id: "canalplus", label: "Canal +", icon: "📡", match: (n) => /canal/i.test(n) },
       { id: "beinsports", label: "beIN Sports", icon: "🔥", match: (n) => /bein/i.test(n) },
-      { id: "ligue1", label: "Ligue 1 +", icon: "⚽", match: (n) => /ligue\s*1\+/i.test(n) },
-      { id: "dazn", label: "DAZN", icon: "🥊", match: () => false },
-      { id: "autres", label: "Autres", icon: "🏆", match: (n) => /eurosport|rmc|equipe/i.test(n) },
-      { id: "general", label: "Général", icon: "📺", match: (n) => /tf1|france\s*2|france\s*3|france\s*24/i.test(n) }
+      { id: "canalplus", label: "Canal +", icon: "📡", match: (n) => /canal/i.test(n) },
+      { id: "ligue1", label: "Ligue 1 +", icon: "⚽", match: (n) => /ligue/i.test(n) },
+      { id: "eurosport", label: "Eurosport", icon: "🏅", match: (n) => /eurosport/i.test(n) },
+      { id: "rmc", label: "RMC Sport", icon: "🎙️", match: (n) => /rmc/i.test(n) }
     ];
 
-    function scrollToCategory(id) {
-      const el = document.getElementById('cat-' + id);
+    function scrollToSection(id) {
+      const el = document.getElementById('sec-' + id);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function renderQuickNav() {
-      const nav = document.getElementById('quickNav');
-      nav.innerHTML = CATEGORIES.map(c =>
-        `<button class="quick-nav-btn" onclick="scrollToCategory('${c.id}')">${c.icon} ${c.label}</button>`
+    function renderQuickAccess() {
+      document.getElementById('quickAccess').innerHTML = CATEGORIES.map(c =>
+        `<button class="quick-btn" onclick="scrollToSection('${c.id}')">${c.icon} ${c.label}</button>`
       ).join('');
     }
 
     function render() {
-      const container = document.getElementById('categoriesContainer');
+      const online = CHANNELS.filter(c => c.status === 'online').length;
+      document.getElementById('liveGlobal').textContent = online + ' directs';
+
       let html = '';
-
-      const onlineTotal = CHANNELS.filter(c => c.status === 'online').length;
-      document.getElementById('liveGlobalCount').textContent = onlineTotal + ' chaînes en direct';
-
       CATEGORIES.forEach(cat => {
-        const channels = CHANNELS.filter(c => cat.match(c.name));
-        html += `<section class="category-section anim-in" id="cat-${cat.id}">`;
-        html += '<div class="category-head">';
-        html += '<div class="category-icon-block">' + cat.icon + '</div>';
-        html += '<h2 class="category-title">' + cat.label + '</h2>';
-        html += '<span class="category-subtitle">' + channels.length + ' chaîne' + (channels.length > 1 ? 's' : '') + '</span>';
-        html += '</div>';
+        const chs = CHANNELS.filter(c => cat.match(c.name));
+        if (chs.length === 0) return;
 
-        if (channels.length === 0 && cat.id === 'dazn') {
-          html += '<div class="empty-category">';
-          html += '<div class="icon">🥊</div>';
-          html += '<p class="title">Aucune chaîne DAZN disponible</p>';
-          html += '<p class="desc">Revenez bientôt, de nouveaux flux arrivent.</p>';
+        html += `<section class="section slide-up" id="sec-${cat.id}">`;
+        html += '<div class="section-head"><div class="section-accent"></div>';
+        html += '<h2 class="section-label">' + cat.label + '</h2>';
+        html += '<span class="section-count">' + chs.length + ' chaîne' + (chs.length > 1 ? 's' : '') + '</span></div>';
+        html += '<div class="grid">';
+        chs.forEach(ch => {
+          const off = ch.status === 'offline';
+          html += `<a href="stream.html?c=${encodeURIComponent(ch.name)}" class="card">`;
+          html += '<div class="card-stripe">';
+          html += '<span class="card-status' + (off ? ' off' : '') + '"><span class="card-dot' + (off ? ' off' : '') + '"></span>' + (off ? 'Off' : 'Direct') + '</span>';
+          html += '<span class="card-badge">' + ch.quality + '</span>';
           html += '</div>';
-        } else if (channels.length > 0) {
-          html += '<div class="channel-grid">';
-          channels.forEach(ch => {
-            const off = ch.status === 'offline';
-            html += '<a href="stream.html?c=' + encodeURIComponent(ch.name) + '" class="channel-card' + (off ? ' offline-card' : '') + '">';
-            html += '<div class="card-top">';
-            html += '<span class="card-status' + (off ? ' off' : '') + '"><span class="status-dot' + (off ? ' off' : '') + '"></span>' + (off ? 'Hors ligne' : 'Direct') + '</span>';
-            html += '<span class="quality-tag">' + ch.quality + '</span>';
-            html += '</div>';
-            html += '<div class="card-visual"><img class="card-logo" src="' + logo(ch) + '" alt="" loading="lazy" /></div>';
-            html += '<div class="card-bottom"><div class="card-channel-name">' + ch.name + '</div><div class="card-country">France</div></div>';
-            html += '</a>';
-          });
-          html += '</div>';
-        }
-        html += '</section>';
+          html += '<div class="card-media"><img class="card-img" src="' + logo(ch) + '" alt="" loading="lazy" /></div>';
+          html += '<div class="card-body"><div class="card-title">' + ch.name + '</div><div class="card-sub">France</div></div>';
+          html += '</a>';
+        });
+        html += '</div></section>';
       });
-
-      container.innerHTML = html;
+      document.getElementById('mainContent').innerHTML = html;
     }
 
-    // Horloge
-    function updateClock() {
-      const now = new Date();
-      document.getElementById('headerClock').textContent =
-        String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
-    }
-    updateClock();
-    setInterval(updateClock, 30000);
-
-    // Theme
-    const themeBtn = document.getElementById('themeToggle');
-    if (localStorage.getItem('sportlive_theme') === 'light') {
+    // Thème
+    const tb = document.getElementById('themeToggle');
+    if (localStorage.getItem('streemio_theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
-      themeBtn.textContent = '☀️';
+      tb.textContent = '☀️';
     }
-    themeBtn.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      localStorage.setItem('sportlive_theme', isDark ? 'light' : 'dark');
-      themeBtn.textContent = isDark ? '☀️' : '🌙';
+    tb.addEventListener('click', () => {
+      const d = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', d ? 'light' : 'dark');
+      localStorage.setItem('streemio_theme', d ? 'light' : 'dark');
+      tb.textContent = d ? '☀️' : '🌙';
     });
 
-    // Scroll
+    // Scroll shadow
     window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('compact', window.scrollY > 60);
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    renderQuickNav();
+    renderQuickAccess();
     render();
   </script>
 </body>
