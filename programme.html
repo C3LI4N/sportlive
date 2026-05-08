@@ -1,290 +1,367 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Programme foot STREEMIO — Matchs à venir avec compte à rebours" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <title>Programme — STREEMIO</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='white' font-family='Arial Black' font-size='40' font-weight='900'%3ESM%3C/text%3E%3C/svg%3E" />
+  <meta name="description" content="Programme NovaPlay — Matchs à venir avec compte à rebours" />
+  <meta name="theme-color" content="#0a0f0a" />
+  <title>Programme — NovaPlay</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3Cpath d='M36 28 L36 72 L68 50 Z' fill='white' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='1.5' opacity='0.3'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #080808;
-      --paper: #0f0f0f;
-      --stone: #181818;
-      --stone-hover: #1f1f1f;
-      --glass: rgba(15, 15, 15, 0.82);
-      --emerald-400: #34d399;
-      --emerald-500: #10b981;
-      --emerald-mist: rgba(16, 185, 129, 0.06);
-      --emerald-border: rgba(16, 185, 129, 0.12);
-      --amber-400: #fbbf24;
-      --amber-mist: rgba(251, 191, 36, 0.08);
-      --amber-border: rgba(251, 191, 36, 0.15);
-      --rose-500: #f43f5e;
-      --rose-mist: rgba(244, 63, 94, 0.08);
-      --text-primary: #f0f0f0;
-      --text-secondary: #909090;
-      --text-tertiary: #606060;
-      --hairline: rgba(255, 255, 255, 0.04);
-      --hairline-strong: rgba(255, 255, 255, 0.08);
-      --gradient-brand: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 100px;
+      --bg-root:#0a0f0a; --bg-surface:#131a13; --bg-card:#1a231a;
+      --bg-card-hover:#212b21; --bg-glass:rgba(19,26,19,0.88);
+      --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+      --green-smudge:rgba(34,197,94,0.04); --green-border:rgba(34,197,94,0.1);
+      --amber-400:#fbbf24; --amber-smudge:rgba(251,191,36,0.06); --rose-500:#f43f5e;
+      --text-primary:#dde5dd; --text-secondary:#889088; --text-tertiary:#586058;
+      --border-hair:rgba(255,255,255,0.03); --border-std:rgba(255,255,255,0.06);
+      --scrollbar-track:#131a13; --scrollbar-thumb:#22c55e;
+      --shadow-sidebar:0 0 40px rgba(0,0,0,0.5); --shadow-hover:0 6px 24px rgba(0,0,0,0.55);
+      --radius-sm:8px; --radius-md:14px; --radius-pill:100px;
     }
 
-    [data-theme="light"] {
-      --ink: #ebedeb;
-      --paper: #f2f4f2;
-      --stone: #e0e2e0;
-      --stone-hover: #d8dad8;
-      --glass: rgba(242, 244, 242, 0.88);
-      --text-primary: #1a1a1a;
-      --text-secondary: #606060;
-      --text-tertiary: #888;
-      --hairline: rgba(0, 0, 0, 0.05);
-      --hairline-strong: rgba(0, 0, 0, 0.08);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      background: var(--ink);
-      color: var(--text-primary);
-      line-height: 1.55;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+      font-family:'Inter',system-ui,sans-serif; background:var(--bg-root);
+      color:var(--text-primary); line-height:1.5; min-height:100vh;
+      -webkit-font-smoothing:antialiased; display:flex;
     }
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--hairline);
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background:var(--scrollbar-thumb); border-radius:10px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--green-400); }
+    html { scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track); scrollbar-width:thin; }
+
+    .bg-ambient {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:radial-gradient(ellipse at 30% 25%, rgba(34,197,94,0.035) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 55%, rgba(74,222,128,0.025) 0%, transparent 50%);
     }
 
-    .navbar-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0.55rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    .sidebar {
+      position:fixed; top:0; left:0; bottom:0; z-index:200;
+      width:220px; background:var(--bg-glass);
+      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      border-right:1px solid var(--border-hair);
+      display:flex; flex-direction:column;
+      padding:1.5rem 1rem; gap:0.5rem;
+      box-shadow:var(--shadow-sidebar);
     }
 
-    .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--text-primary); }
-    .brand-mark { width: 34px; height: 34px; background: var(--gradient-brand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem; color: #fff; }
-    .brand-text { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.03em; }
-    .brand-text .accent { color: var(--emerald-500); }
-
-    .nav-links { display: flex; gap: 0.2rem; background: var(--stone); padding: 0.2rem; border-radius: var(--radius-md); border: 1px solid var(--hairline); }
-    .nav-link { padding: 0.45rem 1rem; border-radius: var(--radius-sm); color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.8rem; transition: all 0.2s ease; }
-    .nav-link:hover { color: var(--text-primary); }
-    .nav-link.active { background: var(--emerald-mist); color: var(--emerald-400); font-weight: 600; box-shadow: 0 0 0 1px var(--emerald-border); }
-
-    .wrapper { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
-
-    .page-header { text-align: center; padding: 2.5rem 0 0.5rem; }
-    .page-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.8rem; background: var(--emerald-mist); border: 1px solid var(--emerald-border); border-radius: var(--radius-pill); font-weight: 600; font-size: 0.7rem; color: var(--emerald-400); margin-bottom: 0.6rem; }
-    .page-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
-    .page-title .hl { background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-    .date-filters { display: flex; justify-content: center; gap: 0.3rem; flex-wrap: wrap; margin: 1.25rem 0; }
-    .date-chip { padding: 0.4rem 0.9rem; background: var(--stone); border: 1px solid var(--hairline); border-radius: var(--radius-pill); color: var(--text-secondary); font-weight: 500; font-size: 0.75rem; font-family: inherit; cursor: pointer; transition: all 0.2s ease; }
-    .date-chip:hover { border-color: var(--hairline-strong); }
-    .date-chip.active { background: var(--emerald-mist); border-color: var(--emerald-border); color: var(--emerald-400); font-weight: 600; }
-    .date-chip.today { background: var(--amber-mist); border-color: var(--amber-border); color: var(--amber-400); }
-
-    .day-block { margin-bottom: 1.5rem; }
-    .day-heading { font-weight: 700; font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem 0; border-bottom: 1px solid var(--hairline); }
-
-    .match-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
-
-    .match-card {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      padding: 0.9rem 1rem;
-      background: var(--stone);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.25s ease;
+    .sidebar-brand {
+      display:flex; align-items:center; gap:0.7rem;
+      text-decoration:none; color:var(--text-primary);
+      margin-bottom:1rem; padding:0 0.3rem;
     }
 
-    .match-card:hover { background: var(--stone-hover); border-color: var(--hairline-strong); transform: translateX(3px); }
-    .match-card.live { border-color: var(--emerald-border); background: var(--emerald-mist); border-left: 3px solid var(--emerald-500); }
-    .match-card.passed { opacity: 0.4; }
+    .sidebar-logo { width:40px; height:40px; flex-shrink:0; }
+    .sidebar-name { font-size:1.2rem; font-weight:800; letter-spacing:-0.04em; }
+    .sidebar-name span { color:var(--green-500); }
 
-    .match-time-col { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
-    .match-time { font-weight: 700; font-size: 0.95rem; color: var(--emerald-400); font-variant-numeric: tabular-nums; }
-    .match-card.live .match-time { color: var(--rose-500); }
-    .match-card.passed .match-time { color: var(--text-tertiary); }
+    .sidebar-section {
+      font-size:0.6rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.08em; color:var(--text-tertiary);
+      padding:0.8rem 0.3rem 0.3rem;
+    }
 
-    .countdown-badge { padding: 0.15rem 0.5rem; border-radius: var(--radius-pill); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.02em; }
-    .countdown-badge.upcoming { background: var(--amber-mist); color: var(--amber-400); }
-    .countdown-badge.live-badge { background: var(--rose-mist); color: var(--rose-500); animation: pulseBadge 2s infinite; }
-    @keyframes pulseBadge { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
-    .countdown-badge.ended { background: var(--stone); color: var(--text-tertiary); }
+    .sidebar-nav { display:flex; flex-direction:column; gap:0.15rem; }
+    .sidebar-link {
+      display:flex; align-items:center; gap:0.65rem;
+      padding:0.6rem 0.7rem; border-radius:var(--radius-sm);
+      color:var(--text-secondary); text-decoration:none;
+      font-weight:500; font-size:0.78rem; transition:all 0.2s;
+    }
+    .sidebar-link:hover { color:var(--text-primary); background:var(--bg-card-hover); }
+    .sidebar-link.on { background:var(--green-smudge); color:var(--green-400); font-weight:600; }
+    .sidebar-link .s-icon { font-size:1rem; width:20px; text-align:center; flex-shrink:0; }
 
-    .match-teams { display: flex; align-items: center; gap: 0.5rem; }
-    .team-name { font-weight: 600; font-size: 0.85rem; }
-    .team-vs { color: var(--text-tertiary); font-size: 0.75rem; margin: 0 0.3rem; }
+    .sidebar-spacer { flex:1; }
 
-    .match-meta { display: flex; align-items: center; gap: 0.6rem; }
-    .comp-tag { padding: 0.2rem 0.6rem; background: var(--emerald-mist); border: 1px solid var(--emerald-border); border-radius: var(--radius-pill); font-size: 0.65rem; color: var(--emerald-400); font-weight: 600; }
-    .channel-info { display: flex; align-items: center; gap: 0.35rem; color: var(--text-secondary); font-size: 0.72rem; }
-    .channel-info img { height: 16px; object-fit: contain; }
-    .arrow { color: var(--emerald-400); font-weight: 700; }
+    .sidebar-info {
+      display:flex; flex-direction:column; align-items:center;
+      gap:0.4rem; padding:1rem 0;
+    }
 
-    .footer { text-align: center; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid var(--hairline); }
-    .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.15rem; }
-    .footer-brand .accent { color: var(--emerald-500); }
-    .footer-note { color: var(--text-tertiary); font-size: 0.6rem; }
+    .sidebar-live {
+      display:flex; align-items:center; gap:0.5rem;
+      font-weight:700; font-size:0.8rem; color:var(--green-400);
+    }
 
-    @media (max-width: 768px) {
-      .wrapper { padding: 0 0.75rem; }
-      .navbar-inner { padding: 0.4rem 0.6rem; gap: 0.5rem; flex-wrap: wrap; justify-content: space-between; }
-      .nav-links { order: 2; width: 100%; justify-content: center; }
-      .match-card { grid-template-columns: 1fr; gap: 0.5rem; text-align: center; }
-      .match-time-col { flex-direction: row; justify-content: center; gap: 0.4rem; }
-      .match-teams { justify-content: center; }
-      .match-meta { justify-content: center; flex-wrap: wrap; }
+    .sidebar-live-dot {
+      width:7px; height:7px; background:var(--green-500);
+      border-radius:50%; animation:beat 2.5s infinite;
+    }
+
+    @keyframes beat {
+      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(34,197,94,0.5); }
+      50% { opacity:0.3; box-shadow:0 0 0 6px rgba(34,197,94,0); }
+    }
+
+    .sidebar-clock {
+      font-weight:800; font-size:1.1rem; color:var(--text-primary);
+      font-variant-numeric:tabular-nums; letter-spacing:0.02em;
+    }
+
+    .main { margin-left:220px; flex:1; position:relative; z-index:1; display:flex; flex-direction:column; }
+    .wrap { max-width:900px; margin:0 auto; padding:0 2rem; width:100%; }
+
+    .pg-head { text-align:center; padding:2.5rem 0 1rem; }
+    .pg-chip {
+      display:inline-flex; align-items:center; gap:0.35rem;
+      padding:0.2rem 0.75rem; background:var(--green-smudge);
+      border:1px solid var(--green-border); border-radius:var(--radius-pill);
+      font-weight:600; font-size:0.62rem; color:var(--green-400);
+      margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.04em;
+    }
+
+    .pg-title { font-size:1.8rem; font-weight:900; letter-spacing:-0.04em; margin-bottom:0.15rem; }
+    .pg-title em { font-style:normal; background:linear-gradient(135deg,#4ade80,#22c55e); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .pg-sub { font-size:0.8rem; color:var(--text-secondary); }
+
+    .date-row { display:flex; justify-content:center; gap:0.25rem; flex-wrap:wrap; margin:1rem 0 1.5rem; }
+    .date-chip {
+      padding:0.32rem 0.75rem; background:var(--bg-card);
+      border:1px solid var(--border-hair); border-radius:var(--radius-pill);
+      color:var(--text-secondary); font-weight:500; font-size:0.66rem;
+      font-family:inherit; cursor:pointer; transition:all 0.2s;
+    }
+    .date-chip:hover { border-color:var(--border-std); color:var(--text-primary); }
+    .date-chip.on { background:var(--green-smudge); border-color:var(--green-border); color:var(--green-400); font-weight:600; }
+    .date-chip.today { background:var(--amber-smudge); border-color:rgba(251,191,36,0.14); color:var(--amber-400); }
+
+    .day-block { margin-bottom:1.2rem; }
+    .day-head {
+      display:flex; align-items:center; gap:0.5rem;
+      padding:0.35rem 0; font-weight:700; font-size:0.72rem;
+      color:var(--text-tertiary); text-transform:uppercase; letter-spacing:0.05em;
+    }
+    .day-dot { width:5px; height:5px; background:var(--green-500); border-radius:50%; box-shadow:0 0 6px rgba(34,197,94,0.25); }
+    .day-line { flex:1; height:1px; background:var(--border-hair); }
+
+    .match-list { display:flex; flex-direction:column; gap:0.4rem; margin-top:0.25rem; }
+
+    .match {
+      display:flex; align-items:center; gap:0.8rem;
+      padding:0.8rem 1rem; background:var(--bg-card);
+      border:1px solid var(--border-hair); border-radius:var(--radius-md);
+      text-decoration:none; color:inherit; transition:all 0.25s;
+      position:relative;
+    }
+
+    .match::before {
+      content:''; position:absolute; left:0; top:0; bottom:0;
+      width:3px; background:var(--green-500); border-radius:0 3px 3px 0;
+      opacity:0; transition:opacity 0.25s;
+    }
+    .match:hover { background:var(--bg-card-hover); border-color:var(--border-std); box-shadow:var(--shadow-hover); transform:translateX(3px); }
+    .match:hover::before { opacity:1; }
+    .match.live { border-color:var(--green-border); background:var(--green-smudge); }
+    .match.live::before { opacity:1; }
+    .match.past { opacity:0.4; }
+
+    .m-time-col { display:flex; flex-direction:column; align-items:center; min-width:60px; flex-shrink:0; }
+    .m-hour { font-weight:700; font-size:0.85rem; color:var(--green-400); font-variant-numeric:tabular-nums; }
+    .match.live .m-hour { color:var(--rose-500); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.04em; }
+    .match.past .m-hour { color:var(--text-tertiary); }
+
+    .m-badge { margin-top:0.1rem; padding:0.08rem 0.4rem; border-radius:var(--radius-pill); font-size:0.52rem; font-weight:700; letter-spacing:0.02em; }
+    .m-badge.warm { background:var(--amber-smudge); color:var(--amber-400); border:1px solid rgba(251,191,36,0.14); }
+    .m-badge.hot { background:rgba(244,63,94,0.08); color:var(--rose-500); border:1px solid rgba(244,63,94,0.16); animation:beatBadge 2s infinite; }
+    @keyframes beatBadge { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    .m-badge.cold { background:var(--bg-surface); color:var(--text-tertiary); border:1px solid var(--border-hair); }
+
+    .m-body { flex:1; min-width:0; }
+    .m-teams { display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap; }
+    .m-team { font-weight:600; font-size:0.78rem; }
+    .m-vs { color:var(--text-tertiary); font-size:0.65rem; margin:0 0.2rem; }
+
+    .m-meta { display:flex; align-items:center; gap:0.35rem; margin-top:0.25rem; flex-wrap:wrap; }
+    .m-comp {
+      padding:0.12rem 0.45rem; background:var(--green-smudge);
+      border:1px solid var(--green-border); border-radius:var(--radius-pill);
+      font-size:0.56rem; color:var(--green-400); font-weight:600;
+    }
+    .m-ch {
+      display:flex; align-items:center; gap:0.2rem;
+      padding:0.12rem 0.45rem; background:var(--bg-surface);
+      border:1px solid var(--border-hair); border-radius:var(--radius-pill);
+      font-size:0.58rem; color:var(--text-secondary);
+    }
+    .m-ch img { height:12px; object-fit:contain; border-radius:2px; }
+
+    .m-arrow { color:var(--green-400); font-weight:700; font-size:0.8rem; flex-shrink:0; opacity:0; transition:opacity 0.25s; }
+    .match:hover .m-arrow { opacity:1; }
+
+    .footer { text-align:center; padding:2rem 0; margin-top:auto; border-top:1px solid var(--border-hair); }
+    .footer-name { font-size:0.85rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.1rem; }
+    .footer-name em { font-style:normal; color:var(--green-500); }
+    .footer-legal { color:var(--text-tertiary); font-size:0.55rem; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    .anim-in { animation:fadeUp 0.4s ease forwards; opacity:0; }
+
+    @media (max-width:768px) {
+      .sidebar { width:0; overflow:hidden; padding:1.5rem 0; }
+      .main { margin-left:0; }
+      .wrap { padding:0 1rem; }
+      .match { flex-direction:column; align-items:flex-start; gap:0.35rem; padding:0.7rem 0.8rem; }
+      .m-time-col { flex-direction:row; gap:0.25rem; align-items:center; }
+      .m-arrow { display:none; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="brand">
-        <div class="brand-mark">SM</div>
-        <span class="brand-text">STREEM<span class="accent">IO</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Chaînes</a>
-        <a href="programme.html" class="nav-link active">Programme</a>
-      </div>
+  <div class="bg-ambient"></div>
+
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">
+      <svg class="sidebar-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="logoGrad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:#4ade80;stop-opacity:1"/><stop offset="100%" style="stop-color:#16a34a;stop-opacity:1"/></radialGradient></defs>
+        <circle cx="50" cy="50" r="46" fill="url(#logoGrad)"/>
+        <path d="M36 28 L36 72 L68 50 Z" fill="white" opacity="0.95"/>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+      </svg>
+      <span class="sidebar-name">Nova<span>Play</span></span>
+    </a>
+
+    <div class="sidebar-section">Navigation</div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="sidebar-link"><span class="s-icon">🏠</span>Accueil</a>
+      <a href="programme.html" class="sidebar-link on"><span class="s-icon">📅</span>Programme</a>
+    </nav>
+
+    <div class="sidebar-section">Chaînes</div>
+    <nav class="sidebar-nav">
+      <a href="channels.html?cat=bein" class="sidebar-link"><span class="s-icon">🔥</span>beIN Sports</a>
+      <a href="channels.html?cat=canal" class="sidebar-link"><span class="s-icon">📡</span>Canal +</a>
+      <a href="channels.html?cat=ligue1" class="sidebar-link"><span class="s-icon">⚽</span>Ligue 1 +</a>
+      <a href="channels.html?cat=eurosport" class="sidebar-link"><span class="s-icon">🏅</span>Eurosport</a>
+      <a href="channels.html?cat=rmc" class="sidebar-link"><span class="s-icon">🎙️</span>RMC Sport</a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-info">
+      <div class="sidebar-live"><span class="sidebar-live-dot"></span><span>26 directs</span></div>
+      <div class="sidebar-clock" id="sidebarClock">00:00</div>
     </div>
-  </nav>
+  </aside>
 
-  <main class="wrapper">
-    <header class="page-header">
-      <div class="page-badge">📅 Prochainement</div>
-      <h1 class="page-title">Programme <span class="hl">Foot</span></h1>
-    </header>
-    <div class="date-filters" id="dateFilters"></div>
-    <div id="programContent"></div>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-brand">STREEM<span class="accent">IO</span></p>
-    <p class="footer-note">© 2026 — Streaming sportif gratuit</p>
-  </footer>
+  <div class="main">
+    <div class="wrap">
+      <div class="pg-head anim-in">
+        <div class="pg-chip">📅 Prochainement</div>
+        <h1 class="pg-title">Programme <em>Foot</em></h1>
+        <p class="pg-sub">Compte à rebours en direct · Cliquez pour regarder</p>
+      </div>
+      <div class="date-row anim-in" id="dateRow"></div>
+      <div id="progContent"></div>
+    </div>
+    <footer class="footer"><p class="footer-name">Nova<em>Play</em></p><p class="footer-legal">© 2026 — Streaming sportif gratuit</p></footer>
+  </div>
 
   <script defer>
     const PROGRAMMES = [
-      { comp: "UCL", home: "Arsenal", away: "Atlético", day: "2026-05-05", time: "21:00", channel: "Canal Foot" },
-      { comp: "D1F", home: "Lyon", away: "Montpellier", day: "2026-05-06", time: "17:00", channel: "Canal Sport360" },
-      { comp: "D1F", home: "PSG", away: "Strasbourg", day: "2026-05-06", time: "17:00", channel: "Canal Foot" },
-      { comp: "UCL", home: "Bayern", away: "PSG", day: "2026-05-06", time: "21:00", channel: "Canal" },
-      { comp: "Europa", home: "Aston Villa", away: "Nottingham", day: "2026-05-07", time: "21:00", channel: "Canal Foot" },
-      { comp: "Bundesliga", home: "Dortmund", away: "Frankfurt", day: "2026-05-08", time: "20:30", channel: "beIN SPORTS 2" },
-      { comp: "Ligue 1", home: "Lens", away: "Nantes", day: "2026-05-08", time: "20:45", channel: "Ligue 1+" },
-      { comp: "Premier League", home: "Liverpool", away: "Chelsea", day: "2026-05-09", time: "13:30", channel: "Canal" },
-      { comp: "Premier League", home: "Man City", away: "Brentford", day: "2026-05-09", time: "18:30", channel: "Canal Foot" },
-      { comp: "Ligue 2", home: "ASSE", away: "Amiens", day: "2026-05-09", time: "20:00", channel: "beIN SPORTS 1" },
-      { comp: "Liga", home: "Real Sociedad", away: "Betis", day: "2026-05-09", time: "21:00", channel: "beIN SPORTS MAX 9" }
+      { comp:"UCL", home:"Arsenal", away:"Atlético", day:"2026-05-05", time:"21:00", channel:"Canal Foot" },
+      { comp:"D1F", home:"Lyon", away:"Montpellier", day:"2026-05-06", time:"17:00", channel:"Canal Sport360" },
+      { comp:"D1F", home:"PSG", away:"Strasbourg", day:"2026-05-06", time:"17:00", channel:"Canal Foot" },
+      { comp:"UCL", home:"Bayern", away:"PSG", day:"2026-05-06", time:"21:00", channel:"Canal" },
+      { comp:"Europa", home:"Aston Villa", away:"Nottingham", day:"2026-05-07", time:"21:00", channel:"Canal Foot" },
+      { comp:"Bundesliga", home:"Dortmund", away:"Frankfurt", day:"2026-05-08", time:"20:30", channel:"beIN SPORTS 2" },
+      { comp:"Ligue 1", home:"Lens", away:"Nantes", day:"2026-05-08", time:"20:45", channel:"Ligue 1+" },
+      { comp:"Premier League", home:"Liverpool", away:"Chelsea", day:"2026-05-09", time:"13:30", channel:"Canal" },
+      { comp:"Premier League", home:"Man City", away:"Brentford", day:"2026-05-09", time:"18:30", channel:"Canal Foot" },
+      { comp:"Ligue 2", home:"ASSE", away:"Amiens", day:"2026-05-09", time:"20:00", channel:"beIN SPORTS 1" },
+      { comp:"Liga", home:"Real Sociedad", away:"Betis", day:"2026-05-09", time:"21:00", channel:"beIN SPORTS MAX 9" }
     ];
 
-    const CHANNEL_LOGOS = {
-      "Canal Foot": "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png",
-      "Canal Sport360": "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_360_7772de4eea.png",
-      "Canal": "https://freebox.cdn.scw.iliad.fr/4_5086f4334d.png",
-      "beIN SPORTS 1": "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png",
-      "beIN SPORTS 2": "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png",
-      "Ligue 1+": "https://freebox.cdn.scw.iliad.fr/large_LFP_LOGOTYPE_L1_MASTER_ELECTRIC_BLUE_RVB_2_5e790f2852.png",
-      "beIN SPORTS MAX 9": "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_9_17ef74743f.png"
+    const LOGOS = {
+      "Canal Foot":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png",
+      "Canal Sport360":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_360_7772de4eea.png",
+      "Canal":"https://freebox.cdn.scw.iliad.fr/4_5086f4334d.png",
+      "beIN SPORTS 1":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png",
+      "beIN SPORTS 2":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png",
+      "Ligue 1+":"https://freebox.cdn.scw.iliad.fr/large_LFP_LOGOTYPE_L1_MASTER_ELECTRIC_BLUE_RVB_2_5e790f2852.png",
+      "beIN SPORTS MAX 9":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_9_17ef74743f.png"
     };
 
-    const CHANNEL_MAP = { "Canal+ Foot": "Canal Foot", "Canal+ Sport 360": "Canal Sport360", "Canal+": "Canal" };
-    function streamName(ch) { return CHANNEL_MAP[ch] || ch; }
-    function streamUrl(ch) { return 'stream.html?c=' + encodeURIComponent(streamName(ch)); }
-    function logo(ch) { return CHANNEL_LOGOS[ch] || ''; }
+    const MAP = { "Canal+ Foot":"Canal Foot", "Canal+ Sport 360":"Canal Sport360", "Canal+":"Canal" };
+    const sName = (ch) => MAP[ch] || ch;
+    const sUrl = (ch) => 'stream.html?c=' + encodeURIComponent(sName(ch));
+    const lImg = (ch) => LOGOS[ch] || '';
 
-    const todayISO = new Date().toISOString().slice(0, 10);
-    let activeDay = todayISO;
-    const days = [...new Set(PROGRAMMES.map(p => p.day))].sort();
+    const today = new Date().toISOString().slice(0,10);
+    let activeDay = today;
+    const days = [...new Set(PROGRAMMES.map(p=>p.day))].sort();
 
-    function fmtShort(iso) { return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' }); }
-    function fmtFull(iso) { const d = new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }); return d.charAt(0).toUpperCase() + d.slice(1); }
+    function fmtS(iso) { return new Date(iso+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}); }
+    function fmtF(iso) { const d=new Date(iso+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}); return d.charAt(0).toUpperCase()+d.slice(1); }
 
-    function getCountdown(dayISO, timeStr) {
-      const [h, m] = timeStr.split(':').map(Number);
-      const matchDate = new Date(dayISO + 'T' + timeStr + ':00');
-      const now = new Date();
-      const diff = matchDate - now;
-      if (diff <= 0 && Math.abs(diff) < 2.5 * 60 * 60 * 1000) return { status: 'live', text: 'Direct' };
-      if (diff < 0) return { status: 'passed', text: 'Terminé' };
-      if (diff > 24 * 60 * 60 * 1000) return { status: 'future', text: '' };
-      const hrs = Math.floor(diff / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      if (hrs > 0) return { status: 'upcoming', text: hrs + 'h ' + (mins > 0 ? mins + 'm' : '') };
-      return { status: 'upcoming', text: mins + ' min' };
+    function cd(day,time) {
+      const [h,m]=time.split(':').map(Number);
+      const md=new Date(day+'T'+time+':00');
+      const diff=md-new Date();
+      if(diff<=0&&Math.abs(diff)<2.5*3600000) return {s:'live',t:'Direct'};
+      if(diff<0) return {s:'past',t:'Terminé'};
+      if(diff>86400000) return {s:'future',t:''};
+      const hrs=Math.floor(diff/3600000);
+      const mins=Math.floor((diff%3600000)/60000);
+      if(hrs>0) return {s:'warm',t:hrs+'h'+(mins>0?' '+mins+'m':'')};
+      return {s:'warm',t:mins+' min'};
     }
 
-    function renderFilters() {
-      const el = document.getElementById('dateFilters');
-      el.innerHTML = '<button class="date-chip' + (activeDay === null ? ' active' : '') + '" onclick="setDay(null)">Tous</button>';
-      days.forEach(d => {
-        const isToday = d === todayISO;
-        el.innerHTML += '<button class="date-chip' + (activeDay === d ? ' active' : '') + (isToday ? ' today' : '') + '" onclick="setDay(\'' + d + '\')">' + fmtShort(d) + (isToday ? ' ✦' : '') + '</button>';
+    function renderDates() {
+      const el=document.getElementById('dateRow');
+      el.innerHTML='<button class="date-chip'+(activeDay===null?' on':'')+'" onclick="setDay(null)">📅 Tous</button>';
+      days.forEach(d=>{
+        const isT=d===today;
+        el.innerHTML+='<button class="date-chip'+(activeDay===d?' on':'')+(isT?' today':'')+'" onclick="setDay(\''+d+'\')">'+fmtS(d)+(isT?' ✦':'')+'</button>';
       });
     }
 
-    function setDay(d) { activeDay = d; renderFilters(); renderProgram(); }
+    window.setDay=function(d) { activeDay=d; renderDates(); renderProg(); };
 
-    function renderProgram() {
-      const el = document.getElementById('programContent');
-      let filtered = PROGRAMMES.filter(p => !activeDay || p.day === activeDay);
-      filtered.sort((a, b) => (a.day + a.time).localeCompare(b.day + b.time));
-      let html = '', prevDay = null;
-      filtered.forEach(p => {
-        if (p.day !== prevDay) { if (prevDay) html += '</div></div>'; prevDay = p.day; html += '<div class="day-block"><div class="day-heading">' + fmtFull(p.day) + '</div><div class="match-list">'; }
-        const cd = getCountdown(p.day, p.time);
-        let cls = 'match-card';
-        if (cd.status === 'live') cls += ' live';
-        if (cd.status === 'passed') cls += ' passed';
-        let badgeHtml = '';
-        if (cd.status === 'upcoming' && cd.text) badgeHtml = '<span class="countdown-badge upcoming">' + cd.text + '</span>';
-        if (cd.status === 'live') badgeHtml = '<span class="countdown-badge live-badge">● Direct</span>';
-        if (cd.status === 'passed') badgeHtml = '<span class="countdown-badge ended">Terminé</span>';
-        const l = logo(p.channel);
-        html += `<a href="${streamUrl(p.channel)}" class="${cls}">
-          <div class="match-time-col"><span class="match-time">${p.time}</span>${badgeHtml}</div>
-          <div class="match-teams"><span class="team-name">${p.home}</span><span class="team-vs">—</span><span class="team-name">${p.away}</span></div>
-          <div class="match-meta"><span class="comp-tag">${p.comp}</span><span class="channel-info">${l ? '<img src="'+l+'" alt="" />' : ''}${p.channel}</span><span class="arrow">→</span></div>
+    function renderProg() {
+      const el=document.getElementById('progContent');
+      let f=PROGRAMMES.filter(p=>!activeDay||p.day===activeDay);
+      f.sort((a,b)=>(a.day+a.time).localeCompare(b.day+b.time));
+      let h='',pd=null,i=0;
+      f.forEach(p=>{
+        if(p.day!==pd) { if(pd) h+='</div></div>'; pd=p.day; i++;
+          h+='<div class="day-block anim-in" style="animation-delay:'+(i*0.03)+'s"><div class="day-head"><div class="day-dot"></div>'+fmtF(p.day)+'<div class="day-line"></div></div><div class="match-list">'; }
+        const c=cd(p.day,p.time);
+        let cls='match';
+        if(c.s==='live') cls+=' live';
+        if(c.s==='past') cls+=' past';
+        let b='';
+        if(c.s==='warm'&&c.t) b='<span class="m-badge warm">⏳ '+c.t+'</span>';
+        if(c.s==='live') b='<span class="m-badge hot">● Direct</span>';
+        if(c.s==='past') b='<span class="m-badge cold">Terminé</span>';
+        const li=lImg(p.channel);
+        h+=`<a href="${sUrl(p.channel)}" class="${cls}">
+          <div class="m-time-col"><span class="m-hour">${c.s==='live'?'Direct':p.time}</span>${b}</div>
+          <div class="m-body"><div class="m-teams"><span class="m-team">${p.home}</span><span class="m-vs">—</span><span class="m-team">${p.away}</span></div>
+          <div class="m-meta"><span class="m-comp">${p.comp}</span><span class="m-ch">${li?'<img src="'+li+'" alt="" loading="lazy" />':''}${p.channel}</span></div></div>
+          <span class="m-arrow">→</span>
         </a>`;
       });
-      if (prevDay) html += '</div></div>';
-      el.innerHTML = html;
-      clearTimeout(window._cdTimer);
-      window._cdTimer = setTimeout(renderProgram, 30000);
+      if(pd) h+='</div></div>';
+      el.innerHTML=h;
+      clearTimeout(window._t);
+      window._t=setTimeout(renderProg,30000);
     }
 
-    renderFilters();
-    renderProgram();
+    function updateClock() {
+      document.getElementById('sidebarClock').textContent = String(new Date().getHours()).padStart(2,'0')+':'+String(new Date().getMinutes()).padStart(2,'0');
+    }
+    updateClock(); setInterval(updateClock,30000);
+    renderDates(); renderProg();
   </script>
 </body>
 </html>

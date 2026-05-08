@@ -1,640 +1,238 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="STREEMIO — Votre plateforme de streaming sportif. Regardez toutes vos chaînes en direct, gratuitement." />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta http-equiv="Cache-Control" content="max-age=1800, must-revalidate" />
-  <title>STREEMIO — Streaming Sportif</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322c55e;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='white' font-family='Arial Black' font-size='40' font-weight='900'%3ESM%3C/text%3E%3C/svg%3E" />
+  <meta name="description" content="NovaPlay — Votre plateforme de streaming sportif gratuite." />
+  <meta name="theme-color" content="#0a0f0a" />
+  <title>NovaPlay — Accueil</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2316a34a;stop-opacity:1'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3Cpath d='M36 28 L36 72 L68 50 Z' fill='white' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='1.5' opacity='0.3'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #080808;
-      --paper: #0f0f0f;
-      --stone: #181818;
-      --stone-hover: #1f1f1f;
-      --glass: rgba(15, 15, 15, 0.82);
-      
-      --emerald-400: #34d399;
-      --emerald-500: #10b981;
-      --emerald-600: #059669;
-      --emerald-mist: rgba(16, 185, 129, 0.06);
-      --emerald-border: rgba(16, 185, 129, 0.12);
-      --emerald-glow: 0 0 20px rgba(16, 185, 129, 0.15);
-      
-      --text-primary: #f0f0f0;
-      --text-secondary: #909090;
-      --text-tertiary: #606060;
-      
-      --hairline: rgba(255, 255, 255, 0.04);
-      --hairline-strong: rgba(255, 255, 255, 0.08);
-      
-      --gradient-brand: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      --gradient-hero: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%);
-      
-      --shadow-elevated: 0 4px 24px rgba(0, 0, 0, 0.4);
-      --shadow-floating: 0 8px 40px rgba(0, 0, 0, 0.5);
-      
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 100px;
+      --bg-root: #0a0f0a; --bg-surface: #131a13; --bg-card: #1a231a;
+      --bg-card-hover: #212b21; --bg-glass: rgba(19, 26, 19, 0.88);
+      --green-400: #4ade80; --green-500: #22c55e; --green-600: #16a34a;
+      --green-smudge: rgba(34, 197, 94, 0.04);
+      --text-primary: #dde5dd; --text-secondary: #889088; --text-tertiary: #586058;
+      --border-hair: rgba(255,255,255,0.03); --border-std: rgba(255,255,255,0.06);
+      --scrollbar-track: #131a13; --scrollbar-thumb: #22c55e;
+      --shadow-sidebar: 0 0 40px rgba(0,0,0,0.5);
+      --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px;
     }
 
-    [data-theme="light"] {
-      --ink: #ebedeb;
-      --paper: #f2f4f2;
-      --stone: #e0e2e0;
-      --stone-hover: #d8dad8;
-      --glass: rgba(242, 244, 242, 0.88);
-      
-      --text-primary: #1a1a1a;
-      --text-secondary: #606060;
-      --text-tertiary: #888;
-      
-      --hairline: rgba(0, 0, 0, 0.05);
-      --hairline-strong: rgba(0, 0, 0, 0.08);
-      
-      --shadow-elevated: 0 4px 20px rgba(0, 0, 0, 0.05);
-      --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.08);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      background: var(--ink);
-      color: var(--text-primary);
-      line-height: 1.55;
-      min-height: 100vh;
-      transition: background 0.4s ease, color 0.4s ease;
-      -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-root); color: var(--text-primary);
+      line-height: 1.5; min-height: 100vh;
+      -webkit-font-smoothing: antialiased; display: flex;
     }
 
-    ::-webkit-scrollbar { width: 0; }
-    
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--green-400); }
+    html { scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); scrollbar-width: thin; }
+
     .bg-ambient {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background: 
-        radial-gradient(ellipse at 25% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 60%),
-        radial-gradient(ellipse at 70% 60%, rgba(52, 211, 153, 0.02) 0%, transparent 50%),
-        radial-gradient(ellipse at 45% 80%, rgba(5, 150, 105, 0.03) 0%, transparent 55%);
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 30% 25%, rgba(34,197,94,0.035) 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 55%, rgba(74,222,128,0.025) 0%, transparent 50%);
     }
 
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
+    .sidebar {
+      position: fixed; top: 0; left: 0; bottom: 0; z-index: 200;
+      width: 220px; background: var(--bg-glass);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-right: 1px solid var(--border-hair);
+      display: flex; flex-direction: column;
+      padding: 1.5rem 1rem; gap: 0.5rem;
+      box-shadow: var(--shadow-sidebar);
     }
 
-    /* ═══════════════ NAVBAR ═══════════════ */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--hairline);
-      transition: box-shadow 0.3s ease;
+    .sidebar-brand {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none; color: var(--text-primary);
+      margin-bottom: 1rem; padding: 0 0.3rem;
     }
 
-    .navbar.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.25); }
+    .sidebar-logo { width: 40px; height: 40px; flex-shrink: 0; }
+    .sidebar-name { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.04em; }
+    .sidebar-name span { color: var(--green-500); }
 
-    .navbar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.55rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    .sidebar-section {
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-tertiary);
+      padding: 0.8rem 0.3rem 0.3rem;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      text-decoration: none;
-      color: var(--text-primary);
-      flex-shrink: 0;
+    .sidebar-nav { display: flex; flex-direction: column; gap: 0.15rem; }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.65rem;
+      padding: 0.6rem 0.7rem; border-radius: var(--radius-sm);
+      color: var(--text-secondary); text-decoration: none;
+      font-weight: 500; font-size: 0.78rem; transition: all 0.2s;
+    }
+    .sidebar-link:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+    .sidebar-link.on { background: var(--green-smudge); color: var(--green-400); font-weight: 600; }
+    .sidebar-link .s-icon { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
+
+    .sidebar-spacer { flex: 1; }
+
+    .sidebar-info {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.4rem; padding: 1rem 0;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      background: var(--gradient-brand);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.85rem;
-      color: #fff;
-      letter-spacing: -0.5px;
-      box-shadow: var(--emerald-glow);
+    .sidebar-live {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-weight: 700; font-size: 0.8rem; color: var(--green-400);
     }
 
-    .brand-text {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+    .sidebar-live-dot {
+      width: 7px; height: 7px; background: var(--green-500);
+      border-radius: 50%; animation: beat 2.5s infinite;
     }
 
-    .brand-text .accent { color: var(--emerald-500); }
-
-    .nav-links {
-      display: flex;
-      gap: 0.2rem;
-      background: var(--stone);
-      padding: 0.2rem;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--hairline);
+    @keyframes beat {
+      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(34,197,94,0.5); }
+      50% { opacity:0.3; box-shadow:0 0 0 6px rgba(34,197,94,0); }
     }
 
-    .nav-link {
-      padding: 0.45rem 1rem;
-      border-radius: var(--radius-sm);
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.8rem;
-      transition: all 0.2s ease;
+    .sidebar-clock {
+      font-weight: 800; font-size: 1.1rem; color: var(--text-primary);
+      font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
     }
 
-    .nav-link:hover { color: var(--text-primary); }
-    .nav-link.active {
-      background: var(--emerald-mist);
-      color: var(--emerald-400);
-      font-weight: 600;
-      box-shadow: 0 0 0 1px var(--emerald-border);
-    }
+    .main { margin-left: 220px; flex: 1; position: relative; z-index: 1; display: flex; flex-direction: column; }
+    .wrap { max-width: 800px; margin: 0 auto; padding: 0 2rem; width: 100%; }
 
-    .navbar-right {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .live-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.75rem;
-      background: var(--emerald-mist);
-      border: 1px solid var(--emerald-border);
-      border-radius: var(--radius-pill);
-      font-weight: 600;
-      font-size: 0.7rem;
-      color: var(--emerald-400);
-    }
-
-    .live-pulse {
-      width: 6px; height: 6px;
-      background: var(--emerald-500);
-      border-radius: 50%;
-      animation: pulse 2.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(16,185,129,0.6); }
-      50% { opacity:0.3; box-shadow:0 0 0 8px rgba(16,185,129,0); }
-    }
-
-    .theme-btn {
-      background: var(--stone);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius-sm);
-      padding: 0.35rem 0.5rem;
-      cursor: pointer;
-      font-size: 0.95rem;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-      line-height: 1;
-    }
-
-    .theme-btn:hover { border-color: var(--emerald-500); background: var(--stone-hover); }
-
-    /* ═══════════════ HERO ═══════════════ */
-    .hero {
-      text-align: center;
-      padding: 3rem 0 1rem;
-    }
-
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.3rem 0.85rem;
-      background: var(--emerald-mist);
-      border: 1px solid var(--emerald-border);
-      border-radius: var(--radius-pill);
-      font-weight: 600;
-      font-size: 0.7rem;
-      color: var(--emerald-400);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
+    .hero { text-align: center; padding: 4rem 0 2rem; }
+    .hero-icon { width: 64px; height: 64px; margin: 0 auto 1.2rem; }
 
     .hero-title {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.5rem;
+      font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 900;
+      line-height: 1.15; letter-spacing: -0.04em; margin-bottom: 0.5rem;
     }
 
-    .hero-title .gradient-text {
-      background: var(--gradient-hero);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-title em {
+      font-style: normal; background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .hero-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      max-width: 400px;
-      margin: 0 auto;
-      font-weight: 400;
+    .hero-desc {
+      font-size: 0.9rem; color: var(--text-secondary);
+      max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7;
     }
 
-    /* ═══════════════ QUICK ACCESS ═══════════════ */
-    .quick-access {
-      display: flex;
-      justify-content: center;
-      gap: 0.35rem;
-      padding: 0.75rem 0 1rem;
-      flex-wrap: wrap;
+    .features {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
     }
 
-    .quick-btn {
-      padding: 0.4rem 0.9rem;
-      background: var(--stone);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius-pill);
-      color: var(--text-secondary);
-      font-size: 0.73rem;
-      font-weight: 500;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+    .feature {
+      background: var(--bg-card); border: 1px solid var(--border-hair);
+      border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;
+      transition: all 0.25s;
     }
 
-    .quick-btn:hover {
-      border-color: var(--emerald-500);
-      color: var(--emerald-400);
-      background: var(--emerald-mist);
-    }
+    .feature:hover { border-color: var(--border-std); transform: translateY(-2px); }
+    .feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .feature-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem; }
+    .feature-desc { font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5; }
 
-    /* ═══════════════ SECTIONS ═══════════════ */
-    .section {
-      margin-bottom: 2.5rem;
-      scroll-margin-top: 5rem;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .section-accent {
-      width: 4px;
-      height: 20px;
-      background: var(--gradient-brand);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .section-label {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .section-count {
-      margin-left: auto;
-      color: var(--text-tertiary);
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    /* ═══════════════ GRID ═══════════════ */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.7rem;
-    }
-
-    .card {
-      background: var(--stone);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: var(--hairline-strong);
-      box-shadow: var(--shadow-floating);
-    }
-
-    .card-stripe {
-      padding: 0.5rem 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .card-status {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--emerald-400);
-    }
-
-    .card-status.off { color: var(--text-tertiary); }
-
-    .card-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--emerald-500);
-    }
-
-    .card-dot.off { background: var(--text-tertiary); }
-
-    .card-badge {
-      padding: 0.1rem 0.4rem;
-      background: var(--paper);
-      border-radius: 4px;
-      color: var(--text-tertiary);
-      font-size: 0.54rem;
-      font-weight: 700;
-    }
-
-    .card-media {
-      padding: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100px;
-      background: var(--paper);
-      flex: 1;
-    }
-
-    .card-img {
-      max-width: 58%;
-      max-height: 50px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover .card-img { transform: scale(1.05); }
-
-    .card-body {
-      padding: 0.7rem 0.8rem;
-    }
-
-    .card-title {
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .card-sub {
-      color: var(--text-tertiary);
-      font-size: 0.6rem;
-      margin-top: 0.15rem;
-      text-transform: uppercase;
-    }
-
-    /* Empty */
-    .empty {
-      padding: 2rem;
-      text-align: center;
-      background: var(--stone);
-      border: 1px dashed var(--hairline);
-      border-radius: var(--radius-lg);
-      color: var(--text-tertiary);
-    }
-
-    .empty-icon { font-size: 2.5rem; opacity: 0.3; margin-bottom: 0.4rem; }
-    .empty-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.1rem; color: var(--text-secondary); }
-    .empty-text { font-size: 0.7rem; }
-
-    /* ═══════════════ FOOTER ═══════════════ */
     .footer {
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      border-top: 1px solid var(--hairline);
+      text-align: center; padding: 2rem 0; margin-top: auto;
+      border-top: 1px solid var(--border-hair);
     }
 
-    .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.15rem; }
-    .footer-brand .accent { color: var(--emerald-500); }
-    .footer-note { color: var(--text-tertiary); font-size: 0.6rem; }
+    .footer-name { font-size: 0.85rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.1rem; }
+    .footer-name em { font-style: normal; color: var(--green-500); }
+    .footer-legal { color: var(--text-tertiary); font-size: 0.55rem; }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .slide-up { animation: slideUp 0.4s ease forwards; opacity: 0; }
-    .slide-up:nth-child(1) { animation-delay: 0s; }
-    .slide-up:nth-child(2) { animation-delay: 0.05s; }
-    .slide-up:nth-child(3) { animation-delay: 0.1s; }
-    .slide-up:nth-child(4) { animation-delay: 0.15s; }
-    .slide-up:nth-child(5) { animation-delay: 0.2s; }
-    .slide-up:nth-child(6) { animation-delay: 0.25s; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .anim-in { animation: fadeUp 0.5s ease forwards; opacity:0; }
 
     @media (max-width: 768px) {
-      .wrapper { padding: 0 0.75rem; }
-      .navbar-inner {
-        padding: 0.4rem 0.6rem;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-      .navbar-right { order: 3; width: 100%; justify-content: center; padding-top: 0.15rem; }
-      .nav-links { order: 2; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
-      .hero-title { font-size: 1.6rem; }
-      .card-media { min-height: 80px; padding: 0.8rem; }
-      .card-body { padding: 0.5rem 0.6rem; }
-      .card-title { font-size: 0.7rem; }
-    }
-
-    @media (max-width: 400px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+      .sidebar { width: 0; overflow: hidden; padding: 1.5rem 0; }
+      .main { margin-left: 0; }
+      .wrap { padding: 0 1rem; }
+      .features { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="bg-ambient"></div>
 
-  <nav class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="brand">
-        <div class="brand-mark">SM</div>
-        <span class="brand-text">STREEM<span class="accent">IO</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link active">Chaînes</a>
-        <a href="programme.html" class="nav-link">Programme</a>
-      </div>
-      <div class="navbar-right">
-        <span class="live-indicator">
-          <span class="live-pulse"></span>
-          <span id="liveGlobal">15 directs</span>
-        </span>
-        <button class="theme-btn" id="themeToggle" aria-label="Thème">🌙</button>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">
+      <svg class="sidebar-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="logoGrad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:#4ade80;stop-opacity:1"/><stop offset="100%" style="stop-color:#16a34a;stop-opacity:1"/></radialGradient></defs>
+        <circle cx="50" cy="50" r="46" fill="url(#logoGrad)"/>
+        <path d="M36 28 L36 72 L68 50 Z" fill="white" opacity="0.95"/>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+      </svg>
+      <span class="sidebar-name">Nova<span>Play</span></span>
+    </a>
+
+    <div class="sidebar-section">Navigation</div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="sidebar-link on"><span class="s-icon">🏠</span>Accueil</a>
+      <a href="programme.html" class="sidebar-link"><span class="s-icon">📅</span>Programme</a>
+    </nav>
+
+    <div class="sidebar-section">Chaînes</div>
+    <nav class="sidebar-nav">
+      <a href="channels.html?cat=bein" class="sidebar-link"><span class="s-icon">🔥</span>beIN Sports</a>
+      <a href="channels.html?cat=canal" class="sidebar-link"><span class="s-icon">📡</span>Canal +</a>
+      <a href="channels.html?cat=ligue1" class="sidebar-link"><span class="s-icon">⚽</span>Ligue 1 +</a>
+      <a href="channels.html?cat=eurosport" class="sidebar-link"><span class="s-icon">🏅</span>Eurosport</a>
+      <a href="channels.html?cat=rmc" class="sidebar-link"><span class="s-icon">🎙️</span>RMC Sport</a>
+    </nav>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-info">
+      <div class="sidebar-live"><span class="sidebar-live-dot"></span><span>26 directs</span></div>
+      <div class="sidebar-clock" id="sidebarClock">00:00</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="wrap">
+      <section class="hero anim-in">
+        <svg class="hero-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="heroGrad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:#4ade80;stop-opacity:1"/><stop offset="100%" style="stop-color:#16a34a;stop-opacity:1"/></radialGradient></defs>
+          <circle cx="50" cy="50" r="46" fill="url(#heroGrad)"/>
+          <path d="M36 28 L36 72 L68 50 Z" fill="white" opacity="0.95"/>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+        </svg>
+        <h1 class="hero-title">Nova<em>Play</em></h1>
+        <p class="hero-desc">
+          Votre plateforme de streaming sportif <strong style="color:var(--green-400);">100% gratuite</strong>.
+          Retrouvez toutes vos chaînes préférées en direct : beIN Sports, Canal+, Eurosport, RMC Sport et bien d'autres.
+          <br><br>
+          Aucune inscription requise. Aucune publicité intrusive. Juste du sport, en direct, quand vous voulez.
+        </p>
+      </section>
+      <div class="features anim-in">
+        <div class="feature"><div class="feature-icon">📺</div><div class="feature-title">+35 chaînes disponibles</div><div class="feature-desc">beIN Sports, Canal+, Eurosport, RMC Sport, Ligue 1+ et toutes les chaînes Canal Live.</div></div>
+        <div class="feature"><div class="feature-icon">⚡</div><div class="feature-title">Qualité HD & FHD</div><div class="feature-desc">Streaming fluide en haute définition pour une expérience de visionnage optimale.</div></div>
+        <div class="feature"><div class="feature-icon">🔒</div><div class="feature-title">Zéro inscription</div><div class="feature-desc">Accédez à tout le contenu librement, sans créer de compte ni fournir d'email.</div></div>
       </div>
     </div>
-  </nav>
-
-  <main class="wrapper">
-    <header class="hero slide-up">
-      <div class="hero-chip">⚡ Streaming gratuit</div>
-      <h1 class="hero-title">Le sport <span class="gradient-text">en direct</span></h1>
-      <p class="hero-subtitle">Toutes vos chaînes sportives réunies. Simple, rapide, gratuit.</p>
-    </header>
-
-    <div class="quick-access slide-up" id="quickAccess"></div>
-    <div id="mainContent"></div>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-brand">STREEM<span class="accent">IO</span></p>
-    <p class="footer-note">© 2026 — Streaming sportif gratuit</p>
-  </footer>
+<footer class="footer"><p class="footer-name">Nova<em>Play</em></p><p class="footer-legal">© 2026 — Streaming sportif gratuit</p></footer>
+  </div>
 
   <script defer>
-    // ═══════════ CHAÎNES ACTIVES (MAJ 07/05/2026) ═══════════
-    const CHANNELS = [
-      // beIN SPORTS
-      { name: "beIN SPORTS 1", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png", status: "online", quality: "FHD" },
-      { name: "beIN SPORTS 2", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png", status: "online", quality: "FHD" },
-      { name: "beIN SPORTS 3", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_3_7e4adcefc6.png", status: "online", quality: "FHD" },
-      { name: "beIN SPORTS MAX 4", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_4_c3c337c2ff.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 5", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_5_ce5871fc49.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 6", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_6_50f4830f78.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 7", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_7_6ebdb0a7d8.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 8", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_8_f699d80fa1.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 9", image: "https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_9_17ef74743f.png", status: "online", quality: "HD" },
-      { name: "beIN SPORTS MAX 10", image: "https://freebox.cdn.scw.iliad.fr/large_be_INSPORTSMAX_10_1ddd01afda.png", status: "online", quality: "HD" },
-      // Canal
-      { name: "Canal", image: "https://freebox.cdn.scw.iliad.fr/4_5086f4334d.png", status: "online", quality: "FHD" },
-      { name: "Canal Sport", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_9bd2c51b31.png", status: "online", quality: "FHD" },
-      { name: "Canal Sport360", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_360_7772de4eea.png", status: "online", quality: "FHD" },
-      { name: "Canal Foot", image: "https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png", status: "online", quality: "FHD" },
-      // Ligue 1
-      { name: "Ligue 1+", image: "https://freebox.cdn.scw.iliad.fr/large_LFP_LOGOTYPE_L1_MASTER_ELECTRIC_BLUE_RVB_2_5e790f2852.png", status: "online", quality: "HD" },
-      // Eurosport
-      { name: "Eurosport 1", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Eurosport_HD_since_2015.svg/120px-Eurosport_HD_since_2015.svg.png", status: "online", quality: "HD" },
-      { name: "Eurosport 2", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Eurosport_2_HD_Logo_2015.svg/1920px-Eurosport_2_HD_Logo_2015.svg.png", status: "online", quality: "HD" },
-      // RMC
-      { name: "RMC Sport 1", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Logo_RMC_Sport_2018.svg", status: "online", quality: "HD" }
-    ];
-
-    const PLACEHOLDER = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48"><rect fill="#181818" width="120" height="48" rx="8"/><text x="60" y="30" text-anchor="middle" fill="#606060" font-family="sans-serif" font-size="10" font-weight="700">STREEMIO</text></svg>');
-    const logo = (ch) => ch.image || PLACEHOLDER;
-
-    const CATEGORIES = [
-      { id: "beinsports", label: "beIN Sports", icon: "🔥", match: (n) => /bein/i.test(n) },
-      { id: "canalplus", label: "Canal +", icon: "📡", match: (n) => /canal/i.test(n) },
-      { id: "ligue1", label: "Ligue 1 +", icon: "⚽", match: (n) => /ligue/i.test(n) },
-      { id: "eurosport", label: "Eurosport", icon: "🏅", match: (n) => /eurosport/i.test(n) },
-      { id: "rmc", label: "RMC Sport", icon: "🎙️", match: (n) => /rmc/i.test(n) }
-    ];
-
-    function scrollToSection(id) {
-      const el = document.getElementById('sec-' + id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function updateClock() {
+      document.getElementById('sidebarClock').textContent = String(new Date().getHours()).padStart(2,'0')+':'+String(new Date().getMinutes()).padStart(2,'0');
     }
-
-    function renderQuickAccess() {
-      document.getElementById('quickAccess').innerHTML = CATEGORIES.map(c =>
-        `<button class="quick-btn" onclick="scrollToSection('${c.id}')">${c.icon} ${c.label}</button>`
-      ).join('');
-    }
-
-    function render() {
-      const online = CHANNELS.filter(c => c.status === 'online').length;
-      document.getElementById('liveGlobal').textContent = online + ' directs';
-
-      let html = '';
-      CATEGORIES.forEach(cat => {
-        const chs = CHANNELS.filter(c => cat.match(c.name));
-        if (chs.length === 0) return;
-
-        html += `<section class="section slide-up" id="sec-${cat.id}">`;
-        html += '<div class="section-head"><div class="section-accent"></div>';
-        html += '<h2 class="section-label">' + cat.label + '</h2>';
-        html += '<span class="section-count">' + chs.length + ' chaîne' + (chs.length > 1 ? 's' : '') + '</span></div>';
-        html += '<div class="grid">';
-        chs.forEach(ch => {
-          const off = ch.status === 'offline';
-          html += `<a href="stream.html?c=${encodeURIComponent(ch.name)}" class="card">`;
-          html += '<div class="card-stripe">';
-          html += '<span class="card-status' + (off ? ' off' : '') + '"><span class="card-dot' + (off ? ' off' : '') + '"></span>' + (off ? 'Off' : 'Direct') + '</span>';
-          html += '<span class="card-badge">' + ch.quality + '</span>';
-          html += '</div>';
-          html += '<div class="card-media"><img class="card-img" src="' + logo(ch) + '" alt="" loading="lazy" /></div>';
-          html += '<div class="card-body"><div class="card-title">' + ch.name + '</div><div class="card-sub">France</div></div>';
-          html += '</a>';
-        });
-        html += '</div></section>';
-      });
-      document.getElementById('mainContent').innerHTML = html;
-    }
-
-    // Thème
-    const tb = document.getElementById('themeToggle');
-    if (localStorage.getItem('streemio_theme') === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      tb.textContent = '☀️';
-    }
-    tb.addEventListener('click', () => {
-      const d = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.documentElement.setAttribute('data-theme', d ? 'light' : 'dark');
-      localStorage.setItem('streemio_theme', d ? 'light' : 'dark');
-      tb.textContent = d ? '☀️' : '🌙';
-    });
-
-    // Scroll shadow
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    renderQuickAccess();
-    render();
+    updateClock(); setInterval(updateClock, 30000);
   </script>
 </body>
 </html>
