@@ -62,14 +62,19 @@
     .video-box:fullscreen { border-radius:0; border:none; max-height:none; aspect-ratio:auto; }
     .video-box:-webkit-full-screen { border-radius:0; border:none; max-height:none; aspect-ratio:auto; }
 
-    .zoom-wrap { position: absolute; inset: 0; overflow: hidden; }
-    .zoom-wrap iframe {
-      position: absolute; top: 50%; left: 50%;
-      width: 104%; height: 104%;
-      transform: translate(-50%, -50%) scale(1.04);
-      border: none; transform-origin: center center;
-    }
-
+    .zoom-wrap { 
+  position: absolute; 
+  inset: -40px 0 0 0;
+  overflow: hidden; 
+}
+.zoom-wrap iframe {
+  position: absolute; 
+  top: 0; left: 50%;
+  width: 104%; 
+  height: calc(100% + 40px);
+  transform: translate(-50%, 0);
+  border: none; 
+}
     .no-feed {
       display: flex; flex-direction: column; align-items: center;
       justify-content: center; height: 100%; text-align: center;
