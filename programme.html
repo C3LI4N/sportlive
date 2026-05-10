@@ -13,14 +13,12 @@
   <style>
     :root {
       --bg-root:#0a0f0a; --bg-surface:#131a13; --bg-card:#1a231a;
-      --bg-card-hover:#212b21; --bg-glass:rgba(19,26,19,0.88);
+      --bg-card-hover:#212b21; --bg-glass:rgba(19,26,19,0.92);
       --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
       --green-smudge:rgba(34,197,94,0.04); --green-border:rgba(34,197,94,0.1);
       --amber-400:#fbbf24; --amber-smudge:rgba(251,191,36,0.06); --rose-500:#f43f5e;
       --text-primary:#dde5dd; --text-secondary:#889088; --text-tertiary:#586058;
       --border-hair:rgba(255,255,255,0.03); --border-std:rgba(255,255,255,0.06);
-      --scrollbar-track:#131a13; --scrollbar-thumb:#22c55e;
-      --shadow-sidebar:0 0 40px rgba(0,0,0,0.5); --shadow-hover:0 6px 24px rgba(0,0,0,0.55);
       --radius-sm:8px; --radius-md:14px; --radius-pill:100px;
     }
 
@@ -33,10 +31,10 @@
     }
 
     ::-webkit-scrollbar { width:6px; }
-    ::-webkit-scrollbar-track { background:var(--scrollbar-track); }
-    ::-webkit-scrollbar-thumb { background:var(--scrollbar-thumb); border-radius:10px; }
-    ::-webkit-scrollbar-thumb:hover { background:var(--green-400); }
-    html { scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track); scrollbar-width:thin; }
+    ::-webkit-scrollbar-track { background:#131a13; }
+    ::-webkit-scrollbar-thumb { background:#22c55e; border-radius:10px; }
+    ::-webkit-scrollbar-thumb:hover { background:#4ade80; }
+    html { scrollbar-color:#22c55e #131a13; scrollbar-width:thin; }
 
     .bg-ambient {
       position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -44,14 +42,26 @@
                 radial-gradient(ellipse at 70% 55%, rgba(74,222,128,0.025) 0%, transparent 50%);
     }
 
+    /* ═══════════ BOUTON MENU MOBILE ═══════════ */
+    .menu-toggle {
+      display:none; position:fixed; top:0.85rem; left:0.85rem; z-index:300;
+      width:42px; height:42px; border-radius:var(--radius-sm);
+      background:var(--bg-glass); backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border:1px solid var(--border-std); color:var(--text-primary);
+      font-size:1.3rem; cursor:pointer; align-items:center; justify-content:center;
+    }
+
+    /* ═══════════ SIDEBAR ═══════════ */
     .sidebar {
-      position:fixed; top:0; left:0; bottom:0; z-index:200;
-      width:220px; background:var(--bg-glass);
-      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      position:fixed; top:0; left:0; bottom:0; z-index:260;
+      width:240px; background:var(--bg-glass);
+      backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
       border-right:1px solid var(--border-hair);
       display:flex; flex-direction:column;
       padding:1.5rem 1rem; gap:0.5rem;
-      box-shadow:var(--shadow-sidebar);
+      box-shadow:0 0 50px rgba(0,0,0,0.6);
+      transition:transform 0.3s ease; overflow-y:auto;
     }
 
     .sidebar-brand {
@@ -108,8 +118,9 @@
       font-variant-numeric:tabular-nums; letter-spacing:0.02em;
     }
 
-    .main { margin-left:220px; flex:1; position:relative; z-index:1; display:flex; flex-direction:column; }
-    .wrap { max-width:900px; margin:0 auto; padding:0 2rem; width:100%; }
+    /* ═══════════ MAIN ═══════════ */
+    .main { margin-left:240px; flex:1; position:relative; z-index:1; display:flex; flex-direction:column; }
+    .wrap { max-width:950px; margin:0 auto; padding:0 2rem; width:100%; }
 
     .pg-head { text-align:center; padding:2.5rem 0 1rem; }
     .pg-chip {
@@ -159,7 +170,7 @@
       width:3px; background:var(--green-500); border-radius:0 3px 3px 0;
       opacity:0; transition:opacity 0.25s;
     }
-    .match:hover { background:var(--bg-card-hover); border-color:var(--border-std); box-shadow:var(--shadow-hover); transform:translateX(3px); }
+    .match:hover { background:var(--bg-card-hover); border-color:var(--border-std); box-shadow:0 6px 24px rgba(0,0,0,0.55); transform:translateX(3px); }
     .match:hover::before { opacity:1; }
     .match.live { border-color:var(--green-border); background:var(--green-smudge); }
     .match.live::before { opacity:1; }
@@ -177,11 +188,10 @@
     .m-badge.cold { background:var(--bg-surface); color:var(--text-tertiary); border:1px solid var(--border-hair); }
 
     .m-body { flex:1; min-width:0; }
-    .m-teams { display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap; }
-    .m-team { font-weight:600; font-size:0.78rem; }
-    .m-vs { color:var(--text-tertiary); font-size:0.65rem; margin:0 0.2rem; }
+    .m-event-name { font-weight:600; font-size:0.82rem; line-height:1.3; }
+    .m-event-detail { font-size:0.7rem; color:var(--text-secondary); margin-top:0.08rem; }
 
-    .m-meta { display:flex; align-items:center; gap:0.35rem; margin-top:0.25rem; flex-wrap:wrap; }
+    .m-meta { display:flex; align-items:center; gap:0.35rem; margin-top:0.3rem; flex-wrap:wrap; }
     .m-comp {
       padding:0.12rem 0.45rem; background:var(--green-smudge);
       border:1px solid var(--green-border); border-radius:var(--radius-pill);
@@ -202,12 +212,15 @@
     .footer-name { font-size:0.85rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.1rem; }
     .footer-name em { font-style:normal; color:var(--green-500); }
     .footer-legal { color:var(--text-tertiary); font-size:0.7rem; }
+    .footer-disclaimer { color:var(--text-tertiary); font-size:0.5rem; margin-top:0.2rem; opacity:0.6; }
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
     .anim-in { animation:fadeUp 0.4s ease forwards; opacity:0; }
 
     @media (max-width:768px) {
-      .sidebar { width:0; overflow:hidden; padding:1.5rem 0; }
+      .menu-toggle { display:flex; }
+      .sidebar { transform:translateX(-100%); }
+      .sidebar.open { transform:translateX(0); }
       .main { margin-left:0; }
       .wrap { padding:0 1rem; }
       .match { flex-direction:column; align-items:flex-start; gap:0.35rem; padding:0.7rem 0.8rem; }
@@ -219,7 +232,9 @@
 <body>
   <div class="bg-ambient"></div>
 
-  <aside class="sidebar">
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar" id="sidebar">
     <a href="index.html" class="sidebar-brand">
       <svg class="sidebar-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs><radialGradient id="logoGrad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:#4ade80;stop-opacity:1"/><stop offset="100%" style="stop-color:#16a34a;stop-opacity:1"/></radialGradient></defs>
@@ -256,42 +271,71 @@
   <div class="main">
     <div class="wrap">
       <div class="pg-head anim-in">
-        <div class="pg-chip">📅 Prochainement</div>
-        <h1 class="pg-title">Programme <em>Foot</em></h1>
+        <div class="pg-chip">📅 À venir</div>
+        <h1 class="pg-title">Programme <em>Sport</em></h1>
         <p class="pg-sub">Compte à rebours en direct · Cliquez pour regarder</p>
       </div>
       <div class="date-row anim-in" id="dateRow"></div>
       <div id="progContent"></div>
     </div>
-    <footer class="footer"><p class="footer-name">Nova<em>Play</em></p><p class="footer-legal">© 2026 — Streaming sportif gratuit</p><p style="color:var(--text-tertiary);font-size:0.7rem;margin-top:0.2rem;opacity:0.6;">NovaPlay ne stocke ni n'héberge aucun contenu vidéo. Tous les flux sont des liens directs vers des sources externes.</p></footer>
+    <footer class="footer">
+      <p class="footer-name">Nova<em>Play</em></p>
+      <p class="footer-legal">© 2026 — Streaming sportif gratuit</p>
+      <p class="footer-disclaimer">NovaPlay ne stocke ni n'héberge aucun contenu vidéo. Tous les flux sont des liens directs vers des sources externes.</p>
+    </footer>
   </div>
 
   <script defer>
+    // ═══════════ PROGRAMME 10-16 MAI 2026 ═══════════
     const PROGRAMMES = [
-      { comp:"UCL", home:"Arsenal", away:"Atlético", day:"2026-05-05", time:"21:00", channel:"Canal Foot" },
-      { comp:"D1F", home:"Lyon", away:"Montpellier", day:"2026-05-06", time:"17:00", channel:"Canal Sport360" },
-      { comp:"D1F", home:"PSG", away:"Strasbourg", day:"2026-05-06", time:"17:00", channel:"Canal Foot" },
-      { comp:"UCL", home:"Bayern", away:"PSG", day:"2026-05-06", time:"21:00", channel:"Canal" },
-      { comp:"Europa", home:"Aston Villa", away:"Nottingham", day:"2026-05-07", time:"21:00", channel:"Canal Foot" },
-      { comp:"Bundesliga", home:"Dortmund", away:"Frankfurt", day:"2026-05-08", time:"20:30", channel:"beIN SPORTS 2" },
-      { comp:"Ligue 1", home:"Lens", away:"Nantes", day:"2026-05-08", time:"20:45", channel:"Ligue 1+" },
-      { comp:"Premier League", home:"Liverpool", away:"Chelsea", day:"2026-05-09", time:"13:30", channel:"Canal" },
-      { comp:"Premier League", home:"Man City", away:"Brentford", day:"2026-05-09", time:"18:30", channel:"Canal Foot" },
-      { comp:"Ligue 2", home:"ASSE", away:"Amiens", day:"2026-05-09", time:"20:00", channel:"beIN SPORTS 1" },
-      { comp:"Liga", home:"Real Sociedad", away:"Betis", day:"2026-05-09", time:"21:00", channel:"beIN SPORTS MAX 9" }
+      // Dimanche 10 mai
+      { comp:"Tennis", event:"Masters 1000 de Rome", detail:"1er/2e tour", day:"2026-05-10", time:"11:00", channel:"Eurosport 2" },
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 3 : Plovdiv > Sofia", day:"2026-05-10", time:"12:15", channel:"Eurosport 1" },
+      { comp:"MotoGP", event:"Grand Prix de France (Le Mans)", detail:"La Course", day:"2026-05-10", time:"14:00", channel:"Canal" },
+      { comp:"Premier League", event:"37e journée", detail:"Matchs décisifs", day:"2026-05-10", time:"17:00", channel:"Canal Foot" },
+      { comp:"Ligue 1", event:"33e journée - Multiplex", detail:"", day:"2026-05-10", time:"21:00", channel:"Ligue 1+" },
+      { comp:"La Liga", event:"Le Clasico", detail:"Real Madrid vs FC Barcelone", day:"2026-05-10", time:"21:00", channel:"beIN SPORTS 1" },
+      { comp:"Top 14", event:"Choc de la 23e journée", detail:"", day:"2026-05-10", time:"21:05", channel:"Canal" },
+      // Lundi 11 mai
+      { comp:"Tennis", event:"Masters 1000 de Rome", detail:"Suite du tournoi", day:"2026-05-11", time:"11:00", channel:"Eurosport 2" },
+      { comp:"NBA", event:"NBA Playoffs", detail:"Demi-finales de conférence", day:"2026-05-11", time:"02:00", channel:"beIN SPORTS 1" },
+      // Mardi 12 mai
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 4 : Catanzaro > Cosenza", day:"2026-05-12", time:"14:00", channel:"Eurosport 1" },
+      { comp:"Ligue 2", event:"Play-offs 1", detail:"4e vs 5e", day:"2026-05-12", time:"20:45", channel:"beIN SPORTS 1" },
+      { comp:"UCL", event:"Demi-finale retour", detail:"", day:"2026-05-12", time:"21:00", channel:"Canal" },
+      // Mercredi 13 mai
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 5 : Praia a Mare > Potenza", day:"2026-05-13", time:"12:25", channel:"Eurosport 1" },
+      { comp:"Tennis", event:"Masters 1000 de Rome", detail:"8es de finale", day:"2026-05-13", time:"11:00", channel:"Eurosport 2" },
+      { comp:"UCL", event:"Demi-finale retour", detail:"", day:"2026-05-13", time:"21:00", channel:"Canal" },
+      // Jeudi 14 mai
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 6 : Paestum > Naples", day:"2026-05-14", time:"14:05", channel:"Eurosport 1" },
+      { comp:"UEL", event:"Demi-finales retour", detail:"", day:"2026-05-14", time:"21:00", channel:"Canal Sport" },
+      { comp:"UECL", event:"Demi-finales retour", detail:"", day:"2026-05-14", time:"21:00", channel:"Canal Live 1" },
+      // Vendredi 15 mai
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 7 : Formia > Blockhaus (montagne)", day:"2026-05-15", time:"10:55", channel:"Eurosport 1" },
+      { comp:"Tennis", event:"Masters 1000 de Rome", detail:"Quarts de finale", day:"2026-05-15", time:"11:00", channel:"Eurosport 2" },
+      { comp:"Ligue 2", event:"Play-offs 2", detail:"3e vs Vainqueur PO 1", day:"2026-05-15", time:"20:45", channel:"beIN SPORTS 1" },
+      // Samedi 16 mai
+      { comp:"Cyclisme", event:"Giro d'Italia", detail:"Étape 8 : Chieti > Fermo", day:"2026-05-16", time:"13:35", channel:"Eurosport 1" },
+      { comp:"Tennis", event:"Masters 1000 de Rome", detail:"Demi-finales", day:"2026-05-16", time:"14:00", channel:"Eurosport 2" },
+      { comp:"Premier League", event:"Dernière ou avant-dernière journée", detail:"", day:"2026-05-16", time:"15:00", channel:"Canal Foot" },
+      { comp:"Ligue 1", event:"34e et dernière journée - Multiplex final", detail:"", day:"2026-05-16", time:"21:00", channel:"Ligue 1+" },
+      { comp:"La Liga", event:"Match décisif (titre ou Europe)", detail:"", day:"2026-05-16", time:"21:00", channel:"beIN SPORTS 2" }
     ];
 
     const LOGOS = {
-      "Canal Foot":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png",
-      "Canal Sport360":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_360_7772de4eea.png",
+      "Eurosport 1":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Eurosport_HD_since_2015.svg/120px-Eurosport_HD_since_2015.svg.png",
+      "Eurosport 2":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Eurosport_2_HD_Logo_2015.svg/1920px-Eurosport_2_HD_Logo_2015.svg.png",
       "Canal":"https://freebox.cdn.scw.iliad.fr/4_5086f4334d.png",
-      "beIN SPORTS 1":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png",
-      "beIN SPORTS 2":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png",
+      "Canal Foot":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_FOOT_581adea3dd.png",
+      "Canal Sport":"https://freebox.cdn.scw.iliad.fr/2023_07_24_RVB_LOGO_CANALPLUS_SPORT_9bd2c51b31.png",
+      "Canal Live 1":"https://thumb.canalplus.pro/http/unsafe/121x91/filters:quality(80)/canalplus-cdn.canal-plus.io/p1/channel/1135/canal-ouah/CHN43FN/CHN43FN_1135_10092024-cEcG",
       "Ligue 1+":"https://freebox.cdn.scw.iliad.fr/large_LFP_LOGOTYPE_L1_MASTER_ELECTRIC_BLUE_RVB_2_5e790f2852.png",
-      "beIN SPORTS MAX 9":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_MAX_9_17ef74743f.png"
+      "beIN SPORTS 1":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_1_134e751711.png",
+      "beIN SPORTS 2":"https://freebox.cdn.scw.iliad.fr/large_Logo_be_IN_SPORTS_2_7cb5d3a006.png"
     };
 
-    const MAP = { "Canal+ Foot":"Canal Foot", "Canal+ Sport 360":"Canal Sport360", "Canal+":"Canal" };
+    const MAP = { "Canal+":"Canal", "Canal+ Foot":"Canal Foot", "Canal+ Sport":"Canal Sport" };
     const sName = (ch) => MAP[ch] || ch;
     const sUrl = (ch) => 'stream.html?c=' + encodeURIComponent(sName(ch));
     const lImg = (ch) => LOGOS[ch] || '';
@@ -307,7 +351,7 @@
       const [h,m]=time.split(':').map(Number);
       const md=new Date(day+'T'+time+':00');
       const diff=md-new Date();
-      if(diff<=0&&Math.abs(diff)<2.5*3600000) return {s:'live',t:'Direct'};
+      if(diff<=0&&Math.abs(diff)<3*3600000) return {s:'live',t:'Direct'};
       if(diff<0) return {s:'past',t:'Terminé'};
       if(diff>86400000) return {s:'future',t:''};
       const hrs=Math.floor(diff/3600000);
@@ -346,8 +390,11 @@
         const li=lImg(p.channel);
         h+=`<a href="${sUrl(p.channel)}" class="${cls}">
           <div class="m-time-col"><span class="m-hour">${c.s==='live'?'Direct':p.time}</span>${b}</div>
-          <div class="m-body"><div class="m-teams"><span class="m-team">${p.home}</span><span class="m-vs">—</span><span class="m-team">${p.away}</span></div>
-          <div class="m-meta"><span class="m-comp">${p.comp}</span><span class="m-ch">${li?'<img src="'+li+'" alt="" loading="lazy" />':''}${p.channel}</span></div></div>
+          <div class="m-body">
+            <div class="m-event-name">${p.event}</div>
+            ${p.detail ? '<div class="m-event-detail">'+p.detail+'</div>' : ''}
+            <div class="m-meta"><span class="m-comp">${p.comp}</span><span class="m-ch">${li?'<img src="'+li+'" alt="" loading="lazy" />':''}${p.channel}</span></div>
+          </div>
           <span class="m-arrow">→</span>
         </a>`;
       });
@@ -357,6 +404,24 @@
       window._t=setTimeout(renderProg,30000);
     }
 
+    // ═══════════ SIDEBAR MOBILE ═══════════
+    document.getElementById('menuToggle').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      var sb = document.getElementById('sidebar');
+      if (window.innerWidth <= 768 && sb.classList.contains('open')) {
+        if (!sb.contains(e.target) && e.target !== document.getElementById('menuToggle')) {
+          sb.classList.remove('open');
+        }
+      }
+    });
+
+    document.getElementById('sidebar').addEventListener('click', function(e) { e.stopPropagation(); });
+
+    // ═══════════ HORLOGE ═══════════
     function updateClock() {
       document.getElementById('sidebarClock').textContent = String(new Date().getHours()).padStart(2,'0')+':'+String(new Date().getMinutes()).padStart(2,'0');
     }

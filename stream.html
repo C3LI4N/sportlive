@@ -62,14 +62,19 @@
     .video-box:fullscreen { border-radius:0; border:none; max-height:none; aspect-ratio:auto; }
     .video-box:-webkit-full-screen { border-radius:0; border:none; max-height:none; aspect-ratio:auto; }
 
-    .zoom-wrap { position: absolute; inset: 0; overflow: hidden; }
-    .zoom-wrap iframe {
-      position: absolute; top: 50%; left: 50%;
-      width: 104%; height: 104%;
-      transform: translate(-50%, -50%) scale(1.04);
-      border: none; transform-origin: center center;
-    }
-
+    .zoom-wrap { 
+  position: absolute; 
+  inset: -75px 0 0 0;
+  overflow: hidden; 
+}
+.zoom-wrap iframe {
+  position: absolute; 
+  top: 0; left: 50%;
+  width: 104%; 
+  height: calc(100% + 40px);
+  transform: translate(-50%, 0);
+  border: none; 
+}
     .no-feed {
       display: flex; flex-direction: column; align-items: center;
       justify-content: center; height: 100%; text-align: center;
@@ -194,16 +199,16 @@
 
   <script defer>
     const STREAM_URLS = {
-      "beIN SPORTS 1": "https://mapple.uk/live-tv-premium/116",
-      "beIN SPORTS 2": "https://mapple.uk/live-tv-premium/117",
-      "beIN SPORTS 3": "https://mapple.uk/live-tv-premium/118",
-      "beIN SPORTS MAX 4": "https://mapple.uk/live-tv-premium/494",
-      "beIN SPORTS MAX 5": "https://mapple.uk/live-tv-premium/495",
-      "beIN SPORTS MAX 6": "https://mapple.uk/live-tv-premium/496",
-      "beIN SPORTS MAX 7": "https://mapple.uk/live-tv-premium/497",
-      "beIN SPORTS MAX 8": "https://mapple.uk/live-tv-premium/498",
-      "beIN SPORTS MAX 9": "https://mapple.uk/live-tv-premium/499",
-      "beIN SPORTS MAX 10": "https://mapple.uk/live-tv-premium/500",
+      "beIN SPORTS 1": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%25201%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS 2": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%25202%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS 3": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%25203%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 4": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25204%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 5": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25205%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 6": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25206%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 7": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25207%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 8": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25208%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 9": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%25209%2520HD%2520(BACKUP)%7Cgroup%3Afr",
+      "beIN SPORTS MAX 10": "https://livewatch.top/player?url=vavoo_BEIN%2520SPORTS%2520MAX%252010%2520HD%2520(BACKUP)%7Cgroup%3Afr",
       "Canal": "https://mapple.uk/live-tv-premium/121",
       "Canal Sport": "https://mapple.uk/live-tv-premium/122",
       "Canal Sport360": "https://mapple.uk/live-tv-premium/464",
@@ -250,8 +255,8 @@
       zw.className = 'zoom-wrap';
       iframe = document.createElement('iframe');
       iframe.src = url;
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
-      iframe.allowFullscreen = true;
+      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-presentation');
+iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       iframe.setAttribute('webkitallowfullscreen','');
       iframe.setAttribute('mozallowfullscreen','');
       zw.appendChild(iframe);
